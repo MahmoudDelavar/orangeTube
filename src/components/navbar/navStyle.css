@@ -114,7 +114,7 @@
 
 .text-mob,
 .icon-mob {
-  color: #2e2c2c;
+  color: rgb(241, 241, 241);
   text-decoration: none;
   display: inline-block;
   margin-right: 5px;
@@ -123,4 +123,18 @@
   margin: auto;
   color: #ce5007;
   font-size: larger;
+}
+
+.mob-main {
+  margin: auto;
+  background-color: black;
+}
+.navbar-toggler-icon {
+  background-color: #ce5007;
+  border-radius: 15px;
+  font-size: 25px;
+}
+
+.basic-navbar-nav {
+  background-color: red;
 }

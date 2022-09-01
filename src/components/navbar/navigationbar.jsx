@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { FiUsers, FiHome, FiUserCheck, FiVideo } from "react-icons/fi";
 import { BiGame } from "react-icons/bi";
 import { useEffect } from "react";
-
 import "./navStyle.css";
 
 //====================================================
