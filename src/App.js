@@ -1,7 +1,13 @@
+import Nav from "./components/navbar/";
+import "./appStyle.css";
+
+//====================================================
 const App = () => {
   return (
     <>
-      <h1 className="text-center">app </h1>
+      <div className="app">
+        <Nav />
+      </div>
     </>
   );
 };

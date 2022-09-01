@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr: #222327;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100px;
+}
+
+.navbar {
+  margin-top: 40px;
+  position: relative;
+  width: 90%;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(130, 134, 138);
+  border-top-left-radius: 90px;
+  border-bottom-right-radius: 90px;
+}
+
+.navbar ul {
+  display: flex;
+  width: 350;
+}
+
+.navbar ul li {
+  position: relative;
+  list-style: none;
+  width: 110px;
+  height: 90px;
+  z-index: 1;
+}
+
+.navbar ul li .link {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.navbar ul li .link .icon {
+  margin-top: -10px;
+  position: relative;
+  display: block;
+  line-height: 75px;
+  font-size: 2rem;
+  text-align: center;
+  transition: 0.5s;
+  color: var(--clr);
+}
+
+.navbar ul li.active .link .icon {
+  transform: translateY(-35px);
+  color: rgb(253, 253, 253);
+}
+
+.navbar ul li .link .text {
+  margin-top: 30px;
+  position: absolute;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.navbar ul li.active .link .text {
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+.indicator {
+  position: absolute;
+  top: -30%;
+  right: 15px;
+  width: 80px;
+  height: 80px;
+  background-color: rgb(245, 139, 0);
+  border-radius: 50px;
+  border: 6px solid #ffffff;
+  transition: 0.5s;
+}
+
+.navbar ul li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(-50px * 0));
+}
+.navbar ul li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(-114px * 1));
+}
+.navbar ul li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(-112px * 2));
+}
+.navbar ul li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(-110px * 3));
+}
+
+/* mob nave */
+
+.text-mob,
+.icon-mob {
+  color: #2e2c2c;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 5px;
+}
+.mob-span {
+  margin: auto;
+  color: #ce5007;
+  font-size: larger;
+}
