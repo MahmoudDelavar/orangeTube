@@ -1,10 +1,18 @@
-const Videos = () => {
+import UploadVideo from "./uploadVideo";
+//==================================================
+const VideoPage = () => {
   return (
     <>
-      {" "}
-      <h1>Videos</h1>
+      <div className="container ">
+        <div className="row">
+          <div className="col">
+            <h1>Videos</h1>
+            <UploadVideo />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
 
-export default Videos;
+export default VideoPage;

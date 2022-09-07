@@ -16,6 +16,7 @@
 }
 
 .navbar {
+  margin: auto;
   margin-top: 40px;
   position: relative;
   width: 90%;
