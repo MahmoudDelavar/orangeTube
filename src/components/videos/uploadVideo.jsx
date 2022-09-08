@@ -1,8 +1,66 @@
 import "./styles/uploadStyle.css";
 import { FaUpload } from "react-icons/fa";
+import { useState } from "react";
+import axios from "axios";
 
 //==================================================
 const UploadVideo = () => {
+  //----------------     States     ------------------
+  const [video, setVideo] = useState("");
+  const [filePath, setFilePath] = useState("");
+  const [fileName, setFileName] = useState("");
+  const [duration, setDuration] = useState("");
+
+  //----------------Handle Functions------------------
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // const title = form.get("title");
+    // const description = form.get("description");
+    // const category = form.get("category");
+
+    // const data = {
+    //   title,
+    //   description,
+    //   category,
+    // };
+    // console.log("data is ", data);
+    // axios
+    //   .post("http://localhost:4000/api/uploads/videos", data)
+    //   .then((res) => {
+    //     console.log(res.data.message);
+    //     console.log("res=", res);
+    //   })
+    //   .catch((err) => {
+    //     console.log("AXIOS ERR:", err);
+    //   });
+    e.target.reset();
+  };
+  //-----------------
+  const handleSelect = async (e) => {
+    e.preventDefault();
+    setVideo(e.target.files[0]);
+    const form = new FormData();
+    const config = {
+      header: { "content-type": "multipart/form-data" },
+    };
+    form.append("file", e.target.files[0]);
+    axios
+      .post("http://localhost:4000/api/videos/load", form, config)
+      .then((res) => {
+        setFileName(res.data.data.fileName);
+        setFilePath(res.data.data.filePath);
+        let info = {
+          fileName: res.data.data.fileName,
+          filePath: res.data.data.filePath,
+        };
+      })
+      .catch((err) => {
+        console.log("AXIOS ERR:", err);
+      });
+  };
+
+  //----------------Handle Functions End------------------
+
   return (
     <>
       <div className="container  ">
@@ -11,8 +69,11 @@ const UploadVideo = () => {
             <header>
               <h1>Upload video</h1>
             </header>
-            <form action="">
-              <div class="mb-3 upload">
+            <form
+              encType="multipart/form-data"
+              onSubmit={(e) => handleSubmit(e)}
+            >
+              <div className="mb-3 upload">
                 <label htmlFor="upload" class="form-label">
                   <FaUpload style={{ fontSize: 40 }} />
                 </label>
@@ -21,6 +82,10 @@ const UploadVideo = () => {
                   type="file"
                   className="form-control inputfile"
                   id="upload"
+                  name="video"
+                  onChange={(e) => {
+                    handleSelect(e);
+                  }}
                 />
               </div>
 
@@ -33,25 +98,37 @@ const UploadVideo = () => {
                   className="form-control"
                   aria-label="title"
                   aria-describedby="title"
+                  name="title"
                 />
               </div>
+
               <div className="input-group mb-3">
                 <span className="input-group-text">توضیحات</span>
-                <textarea className="form-control"></textarea>
+                <textarea
+                  name="description"
+                  className="form-control"
+                ></textarea>
               </div>
+
               <div className="input-group mb-3">
                 <label className="input-group-text" htmlFor="category">
                   دسته بندی
                 </label>
-                <select className="form-select" id="category">
-                  <option selected>انتخاب کنید</option>
-                  <option value="1">انیمیشن</option>
-                  <option value="2">جنایی</option>
-                  <option value="3">کمدی</option>
-                  <option value="3">مستند</option>
-                  <option value="3">علمی</option>
+                <select name="category" className="form-select" id="category">
+                  <option selected value="">
+                    انتخاب کنید
+                  </option>
+                  <option value="انیمیشن">انیمیشن</option>
+                  <option value="جنایی">جنایی</option>
+                  <option value="کمدی">کمدی</option>
+                  <option value="مستند">مستند</option>
+                  <option value="علمی">علمی</option>
                 </select>
               </div>
+
+              <button className="btn btn-primary" type="submit">
+                ارسال
+              </button>
             </form>
           </div>
         </div>
