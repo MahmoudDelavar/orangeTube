@@ -10,6 +10,7 @@ const UploadVideo = () => {
   const [filePath, setFilePath] = useState("");
   const [fileName, setFileName] = useState("");
   const [duration, setDuration] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
 
   //----------------Handle Functions------------------
   const handleSubmit = async (e) => {
@@ -53,6 +54,16 @@ const UploadVideo = () => {
           fileName: res.data.data.fileName,
           filePath: res.data.data.filePath,
         };
+        // genetate thumbnails
+        axios
+          .post("http://localhost:4000/api/videos/thumbnail", info)
+          .then((res) => {
+            setDuration(res.data.data.fileDuration);
+            setThumbnail(res.data.data.thumbFliePath);
+          })
+          .catch((err) => {
+            console.log("thumbnail ERR", err);
+          });
       })
       .catch((err) => {
         console.log("AXIOS ERR:", err);
@@ -73,20 +84,34 @@ const UploadVideo = () => {
               encType="multipart/form-data"
               onSubmit={(e) => handleSubmit(e)}
             >
-              <div className="mb-3 upload">
-                <label htmlFor="upload" class="form-label">
-                  <FaUpload style={{ fontSize: 40 }} />
-                </label>
-                <label htmlFor="upload">آپلود ویدئو</label>
-                <input
-                  type="file"
-                  className="form-control inputfile"
-                  id="upload"
-                  name="video"
-                  onChange={(e) => {
-                    handleSelect(e);
-                  }}
-                />
+              <div className="row  justify-content-between ">
+                <div className="col-3 mb-3 upload">
+                  <label htmlFor="upload" class="form-label">
+                    <FaUpload style={{ fontSize: 40 }} />
+                  </label>
+                  <label htmlFor="upload">آپلود ویدئو</label>
+                  <input
+                    type="file"
+                    className="form-control inputfile"
+                    id="upload"
+                    name="video"
+                    onChange={(e) => {
+                      handleSelect(e);
+                    }}
+                  />
+                </div>
+                <div className="col-9 mb-3">
+                  {thumbnail !== "" && (
+                    <div>
+                      <img
+                        src={`http://localhost:4000/${thumbnail}`}
+                        alt="faild Load"
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="input-group mb-3">
