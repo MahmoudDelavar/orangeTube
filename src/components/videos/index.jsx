@@ -6,7 +6,6 @@ const VideoPage = () => {
       <div className="container ">
         <div className="row">
           <div className="col">
-            <h1>Videos</h1>
             <UploadVideo />
           </div>
         </div>

@@ -15,25 +15,30 @@ const UploadVideo = () => {
   //----------------Handle Functions------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const title = form.get("title");
-    // const description = form.get("description");
-    // const category = form.get("category");
+    const form = new FormData(e.target);
+    const title = form.get("title");
+    const description = form.get("description");
+    const category = form.get("category");
 
-    // const data = {
-    //   title,
-    //   description,
-    //   category,
-    // };
-    // console.log("data is ", data);
-    // axios
-    //   .post("http://localhost:4000/api/uploads/videos", data)
-    //   .then((res) => {
-    //     console.log(res.data.message);
-    //     console.log("res=", res);
-    //   })
-    //   .catch((err) => {
-    //     console.log("AXIOS ERR:", err);
-    //   });
+    const data = {
+      title: title,
+      description: description,
+      category: category,
+      filePath: filePath,
+      duration: duration,
+      thumbnail: thumbnail,
+    };
+    console.log("data is ", data);
+    axios
+      .post("http://localhost:4000/api/videos/addvideo", data)
+      .then((res) => {
+        console.log(res.data.message);
+        console.log("res=", res);
+      })
+      .catch((err) => {
+        console.log("AXIOS ERR:", err);
+      });
+
     e.target.reset();
   };
   //-----------------
@@ -106,8 +111,6 @@ const UploadVideo = () => {
                       <img
                         src={`http://localhost:4000/${thumbnail}`}
                         alt="faild Load"
-                        width={200}
-                        height={200}
                       />
                     </div>
                   )}
@@ -144,7 +147,7 @@ const UploadVideo = () => {
                     انتخاب کنید
                   </option>
                   <option value="انیمیشن">انیمیشن</option>
-                  <option value="جنایی">جنایی</option>
+                  <option value="سرگرمی">سرگرمی</option>
                   <option value="کمدی">کمدی</option>
                   <option value="مستند">مستند</option>
                   <option value="علمی">علمی</option>
