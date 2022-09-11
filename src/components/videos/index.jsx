@@ -1,4 +1,6 @@
+import LandingPage from "./landingPage";
 import UploadVideo from "./uploadVideo";
+
 //==================================================
 const VideoPage = () => {
   return (
@@ -7,6 +9,7 @@ const VideoPage = () => {
         <div className="row">
           <div className="col">
             <UploadVideo />
+            <LandingPage />
           </div>
         </div>
       </div>

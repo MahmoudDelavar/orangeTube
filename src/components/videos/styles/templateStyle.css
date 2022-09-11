@@ -1,0 +1,16 @@
+.template {
+  display: none;
+  margin: 5px;
+}
+.thumbnail {
+  position: relative;
+}
+.time {
+  position: absolute;
+  top: 170px;
+  right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(53, 52, 52);
+  color: azure;
+}
