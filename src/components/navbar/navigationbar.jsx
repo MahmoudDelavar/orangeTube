@@ -47,7 +47,7 @@ const Navigationbar = () => {
                     </Link>
                   </li>
                   <li className="list">
-                    <Link className="link" to="/profile">
+                    <Link className="link" to="/register">
                       <span className="icon">
                         <FiUsers />
                       </span>

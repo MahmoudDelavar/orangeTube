@@ -48,7 +48,7 @@ const MobNav = () => {
                       </Link>
                     </Nav.Link>
                     <Nav.Link>
-                      <Link className="link" to="/profile">
+                      <Link className="link" to="/register">
                         <span className="icon-mob ">
                           <FiUsers />
                         </span>

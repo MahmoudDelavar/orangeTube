@@ -14,7 +14,7 @@ const App = () => {
   return (
     <>
       <Nav />
-      <div className="container text-center">
+      <div className="container ">
         <div className="row justify-content-center ">
           <div className="col-12 align-content-center">
             <Routes>
@@ -22,7 +22,7 @@ const App = () => {
               <Route path="/videos" element={<Videos />} />
               <Route path="/games" element={<Games />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/login" element={<Logout />} />
+              <Route path="/logout" element={<Logout />} />
               <Route path="/register" element={<Register />} />
             </Routes>
             <Footer />
