@@ -79,17 +79,18 @@ const UploadVideo = () => {
 
   return (
     <>
-      <div className="container  ">
-        <div className="row form">
+      <div className="container text-center ">
+        <div className="row form-box">
           <div className="col-sm-12 col-md-9 ">
             <header>
               <h1>Upload video</h1>
             </header>
             <form
+              className="upload-form"
               encType="multipart/form-data"
               onSubmit={(e) => handleSubmit(e)}
             >
-              <div className="row  justify-content-between ">
+              <div className="row   ">
                 <div className="col-3 mb-3 upload">
                   <label htmlFor="upload" class="form-label">
                     <FaUpload style={{ fontSize: 40 }} />

@@ -1,6 +1,5 @@
 import MobNav from "./mobNav";
 import Navigationbar from "./navigationbar";
-
 //====================================================
 
 const Nav = () => {

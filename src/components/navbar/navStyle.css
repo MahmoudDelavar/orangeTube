@@ -89,7 +89,7 @@
 .indicator {
   position: absolute;
   top: -30%;
-  right: 15px;
+  right: 45px;
   width: 80px;
   height: 80px;
   background-color: rgb(245, 139, 0);
@@ -99,7 +99,7 @@
 }
 
 .navbar ul li:nth-child(1).active ~ .indicator {
-  transform: translateX(calc(-50px * 0));
+  transform: translateX(calc(-60px * 0));
 }
 .navbar ul li:nth-child(2).active ~ .indicator {
   transform: translateX(calc(-114px * 1));
