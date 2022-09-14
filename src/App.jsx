@@ -8,6 +8,8 @@ import Footer from "./components/footer";
 import Login from "./components/auth/login";
 import Logout from "./components/auth/logout";
 import Register from "./components/auth/register";
+import LandingPage from "./components/videos/landingPage";
+import UploadVideo from "./components/videos/uploadVideo";
 
 //====================================================
 const App = () => {
@@ -20,6 +22,7 @@ const App = () => {
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/videos" element={<Videos />} />
+              <Route path="/videos/uploadVideo" element={<UploadVideo />} />
               <Route path="/games" element={<Games />} />
               <Route path="/login" element={<Login />} />
               <Route path="/logout" element={<Logout />} />

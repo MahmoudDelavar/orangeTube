@@ -28,7 +28,6 @@ const UploadVideo = () => {
       duration: duration,
       thumbnail: thumbnail,
     };
-    console.log("data is ", data);
     axios
       .post("http://localhost:4000/api/videos/addvideo", data)
       .then((res) => {

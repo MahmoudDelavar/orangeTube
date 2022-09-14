@@ -34,3 +34,34 @@
 .perview {
   text-align: center;
 }
+.upload-link {
+  text-decoration: none;
+  color: black;
+  margin: auto;
+}
+.link-box:hover .upload-link {
+  text-decoration: none;
+  color: rgb(57, 110, 255);
+  transition: 0.5s;
+}
+.upload-link:not(:hover) {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  transition: 1s;
+}
+.link-box {
+  border-radius: 10px;
+  padding: 5px;
+  width: 180px;
+  height: 180px;
+  display: inline-block;
+  margin: 5px;
+}
+.link-box:hover {
+  background-color: rgb(194, 194, 194);
+  transition: 1s;
+}
+.link-box:not(:hover) {
+  background-color: rgb(255, 255, 255);
+  transition: 1s;
+}
