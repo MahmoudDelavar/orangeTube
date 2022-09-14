@@ -25,3 +25,17 @@
   font-size: larger;
   list-style: none;
 }
+/*   */
+.icon-login {
+  padding: 5px;
+  border-radius: 10%;
+  color: rgba(0, 0, 0, 0.247);
+  background-color: rgba(0, 0, 0, 0.418);
+}
+.icon-login :hover {
+  color: aliceblue;
+  transition: 1s;
+}
+.icon-login :not(:hover) {
+  transition: 1s;
+}

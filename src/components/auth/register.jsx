@@ -34,7 +34,7 @@ const Register = () => {
   };
 
   //____handle submit___
-  const handelSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const userName = form.get("userName");
@@ -108,7 +108,7 @@ const Register = () => {
 
       {/* --- Form Inputs ---  */}
       <form
-        onSubmit={(e) => handelSubmit(e)}
+        onSubmit={(e) => handleSubmit(e)}
         encType="multipart/form-data"
         method="post"
         className="main-box"
