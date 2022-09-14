@@ -8,9 +8,12 @@
   opacity: 0;
   width: 0.1px;
   width: 0.1px;
+  z-index: -1;
 }
 .avatar {
-  font-size: 20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
 }
 
 .alert {

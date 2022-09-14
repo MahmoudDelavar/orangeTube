@@ -1,6 +1,6 @@
 import InputComponent from "../inputComponent/inputComponent";
 import { Key, Mailbox } from "react-bootstrap-icons";
-import { FaUserAlt } from "react-icons/fa";
+import { FaBookMedical, FaUserAlt } from "react-icons/fa";
 import { FcBusinessman, FcPicture } from "react-icons/fc";
 import * as yup from "yup";
 import "./style.css";
@@ -10,11 +10,30 @@ import { useEffect } from "react";
 //====================================================
 
 const Register = () => {
-  //----- states -----
+  //-------------------------- states -----------------------------------------------
   const [err, setErr] = useState([]);
   const [serverMsg, setServerMsg] = useState([]);
+  const [avatarPath, setAvatarPath] = useState("");
 
-  //----- send data to backend -----
+  //-------------------------- send data to backend ---------------------------------
+
+  //____Send Users Avatar To Server___
+  const handleChange = async (e) => {
+    console.log("avatar:", e.target.files[0]);
+    const form = new FormData();
+    const config = {
+      header: { "content-type": "multipart-data" },
+    };
+    form.append("file", e.target.files[0]);
+    axios
+      .post("http://localhost:4000/api/auth/avatar", form, config)
+      .then((res) => {
+        setAvatarPath(res.data.data.filePath);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  //____handle submit___
   const handelSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -22,7 +41,8 @@ const Register = () => {
     const password = form.get("password");
     const re_password = form.get("re-password");
     const email = form.get("email");
-    const userInfo = { userName: userName, password: password, email: email };
+
+    const userInfo = { userName, password, email, avatarPath };
     const isValid = await validate(userInfo);
     if (re_password === password) {
       if (isValid) {
@@ -45,7 +65,7 @@ const Register = () => {
     }
   };
 
-  //----- validation inputs -----
+  //-------------------------- validation inputs ------------------------------------
   let schema = yup.object().shape({
     userName: yup.string().required("نام کاربری راوارد کنید "),
     email: yup
@@ -68,7 +88,7 @@ const Register = () => {
 
   return (
     <>
-      {/* Errors Message box */}
+      {/* --- Errors Message Box ---  */}
       {err.length !== 0 && (
         <ul>
           <div className="alert alert-danger">
@@ -79,13 +99,14 @@ const Register = () => {
         </ul>
       )}
 
-      {/* Server Message box */}
+      {/* --- Server Message Box ---  */}
       {serverMsg.length !== 0 && (
         <div className="alert alert-primary">
           <p>{serverMsg}</p>
         </div>
       )}
 
+      {/* --- Form Inputs ---  */}
       <form
         onSubmit={(e) => handelSubmit(e)}
         encType="multipart/form-data"
@@ -123,11 +144,25 @@ const Register = () => {
               <FcBusinessman size={50} />
               <p> تصویر پروفایل</p>
             </label>
-            <input id="avatar" type="file" className="avatar-input" />
+            <input
+              onChange={(e) => handleChange(e)}
+              id="avatar"
+              type="file"
+              className="avatar-input"
+            />
           </div>
           <div className="col-6">
-            <FcPicture size={50} />
-            <p> پیش نمایش</p>
+            {avatarPath !== "" && (
+              <img
+                className="avatar"
+                src={`http://localhost:4000/${avatarPath}`}
+              />
+            )}
+            {avatarPath == "" && (
+              <div>
+                <FcPicture size={50} /> <p>پیش نمایش</p>
+              </div>
+            )}
           </div>
         </div>
 
