@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { FiUsers, FiHome, FiUserCheck, FiVideo } from "react-icons/fi";
+import { FiUsers, FiHome, FiVideo, FiLogOut } from "react-icons/fi";
+import { FaRegIdCard } from "react-icons/fa";
+
 import { BiGame } from "react-icons/bi";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -50,9 +52,25 @@ const MobNav = () => {
                     <Nav.Link>
                       <Link className="link" to="/register">
                         <span className="icon-mob ">
+                          <FaRegIdCard />
+                        </span>
+                        <span className="text-mob">ثبت نام</span>
+                      </Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                      <Link className="link" to="/login">
+                        <span className="icon-mob ">
                           <FiUsers />
                         </span>
                         <span className="text-mob">ورود</span>
+                      </Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                      <Link className="link" to="/logout">
+                        <span className="icon-mob ">
+                          <FiLogOut />
+                        </span>
+                        <span className="text-mob">خرج</span>
                       </Link>
                     </Nav.Link>
                   </Nav>

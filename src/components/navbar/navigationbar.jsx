@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { FiUsers, FiHome, FiUserCheck, FiVideo } from "react-icons/fi";
+import { FiUsers, FiHome, FiLogOut, FiVideo, FiLogIn } from "react-icons/fi";
 import { BiGame } from "react-icons/bi";
+import { FaRegIdCard } from "react-icons/fa";
 import { useEffect } from "react";
 import "./navStyle.css";
 
@@ -49,9 +50,25 @@ const Navigationbar = () => {
                   <li className="list">
                     <Link className="link" to="/login">
                       <span className="icon">
-                        <FiUsers />
+                        <FiLogIn />
                       </span>
                       <span className="text">ورود</span>
+                    </Link>
+                  </li>
+                  <li className="list">
+                    <Link className="link" to="/register">
+                      <span className="icon">
+                        <FaRegIdCard />
+                      </span>
+                      <span className="text">ثبت نام</span>
+                    </Link>
+                  </li>
+                  <li className="list">
+                    <Link className="link" to="/logout">
+                      <span className="icon">
+                        <FiLogOut />
+                      </span>
+                      <span className="text">خروج</span>
                     </Link>
                   </li>
                   <div className="indicator"></div>

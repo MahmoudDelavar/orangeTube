@@ -19,7 +19,7 @@
   margin: auto;
   margin-top: 40px;
   position: relative;
-  width: 90%;
+  width: 95%;
   height: 110px;
   display: flex;
   justify-content: center;
@@ -31,7 +31,7 @@
 
 .navbar ul {
   display: flex;
-  width: 350;
+  /* width: 300; */
 }
 
 .navbar ul li {
@@ -109,6 +109,12 @@
 }
 .navbar ul li:nth-child(4).active ~ .indicator {
   transform: translateX(calc(-110px * 3));
+}
+.navbar ul li:nth-child(5).active ~ .indicator {
+  transform: translateX(calc(-110px * 4));
+}
+.navbar ul li:nth-child(6).active ~ .indicator {
+  transform: translateX(calc(-110px * 5));
 }
 
 /* mob nave */
