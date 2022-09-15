@@ -39,6 +39,7 @@ const UploadVideo = () => {
       });
 
     e.target.reset();
+    window.location = "/videos";
   };
   //-----------------
   const handleSelect = async (e) => {

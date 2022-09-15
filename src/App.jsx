@@ -10,12 +10,27 @@ import Logout from "./components/auth/logout";
 import Register from "./components/auth/register";
 import LandingPage from "./components/videos/landingPage";
 import UploadVideo from "./components/videos/uploadVideo";
-
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 //====================================================
 const App = () => {
+  const [user, setUser] = useState(null);
+  useEffect(async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setUser(null);
+      return;
+    }
+    const response = await axios.post(
+      "http://localhost:4000/api/auth/userbytoken",
+      { token }
+    );
+    setUser(response.data.data);
+  }, []);
   return (
     <>
-      <Nav />
+      <Nav user={user} />
       <div className="container ">
         <div className="row justify-content-center ">
           <div className="col-12 align-content-center">

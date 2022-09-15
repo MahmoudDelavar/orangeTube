@@ -2,11 +2,11 @@ import MobNav from "./mobNav";
 import Navigationbar from "./navigationbar";
 //====================================================
 
-const Nav = () => {
+const Nav = (props) => {
   return (
     <>
       <MobNav />
-      <Navigationbar />
+      <Navigationbar user={props.user} />
     </>
   );
 };

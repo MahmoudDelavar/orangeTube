@@ -14,7 +14,7 @@ const Login = () => {
   //-------------------------- states -----------------------------------------------
   const [err, setErr] = useState([]);
   const [serverMsg, setServerMsg] = useState([]);
-
+  const [sending, setSending] = useState(false);
   //-------------------------- send data to backend ---------------------------------
   //____handle submit___
   const handleSubmit = async (e) => {
@@ -31,6 +31,7 @@ const Login = () => {
       axios
         .post("http://localhost:4000/api/auth/login", userInfo)
         .then((res) => {
+          setSending(true);
           err.length = 0;
           localStorage.setItem("token", res.data.data);
           setServerMsg(res.data.message);
@@ -105,7 +106,11 @@ const Login = () => {
           icon={<Key />}
         />
         <div className="text-center d-grid gap-2 mt-4 ">
-          <button type="submit" className="btn btn-outline-primary ">
+          <button
+            disabled={sending}
+            type="submit"
+            className="btn btn-outline-primary "
+          >
             ورود
           </button>
         </div>

@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import "./navStyle.css";
 
 //====================================================
-const Navigationbar = () => {
+const Navigationbar = (props) => {
   useEffect(() => {
     const list = document.querySelectorAll(".list");
     function activLink() {
@@ -15,6 +15,7 @@ const Navigationbar = () => {
     }
     list.forEach((item) => item.addEventListener("click", activLink));
   });
+
   return (
     <>
       <div className="container">
@@ -47,30 +48,35 @@ const Navigationbar = () => {
                       <span className="text"> بازی </span>
                     </Link>
                   </li>
-                  <li className="list">
-                    <Link className="link" to="/login">
-                      <span className="icon">
-                        <FiLogIn />
-                      </span>
-                      <span className="text">ورود</span>
-                    </Link>
-                  </li>
-                  <li className="list">
-                    <Link className="link" to="/register">
-                      <span className="icon">
-                        <FaRegIdCard />
-                      </span>
-                      <span className="text">ثبت نام</span>
-                    </Link>
-                  </li>
-                  <li className="list">
-                    <Link className="link" to="/logout">
-                      <span className="icon">
-                        <FiLogOut />
-                      </span>
-                      <span className="text">خروج</span>
-                    </Link>
-                  </li>
+                  {!props.user ? (
+                    <>
+                      <li className="list">
+                        <Link className="link" to="/login">
+                          <span className="icon">
+                            <FiLogIn />
+                          </span>
+                          <span className="text">ورود</span>
+                        </Link>
+                      </li>
+                      <li className="list">
+                        <Link className="link" to="/register">
+                          <span className="icon">
+                            <FaRegIdCard />
+                          </span>
+                          <span className="text">ثبت نام</span>
+                        </Link>
+                      </li>
+                    </>
+                  ) : (
+                    <li className="list">
+                      <Link className="link" to="/logout">
+                        <span className="icon">
+                          <FiLogOut />
+                        </span>
+                        <span className="text">خروج</span>
+                      </Link>
+                    </li>
+                  )}
                   <div className="indicator"></div>
                 </ul>
               </div>
