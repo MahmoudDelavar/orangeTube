@@ -10,7 +10,7 @@ import "./navStyle.css";
 import { useEffect } from "react";
 //====================================================
 
-const MobNav = () => {
+const MobNav = (props) => {
   return (
     <>
       <div className="row ">
@@ -49,30 +49,35 @@ const MobNav = () => {
                         <span className="text-mob"> بازی </span>
                       </Link>
                     </Nav.Link>
-                    <Nav.Link>
-                      <Link className="link" to="/register">
-                        <span className="icon-mob ">
-                          <FaRegIdCard />
-                        </span>
-                        <span className="text-mob">ثبت نام</span>
-                      </Link>
-                    </Nav.Link>
-                    <Nav.Link>
-                      <Link className="link" to="/login">
-                        <span className="icon-mob ">
-                          <FiUsers />
-                        </span>
-                        <span className="text-mob">ورود</span>
-                      </Link>
-                    </Nav.Link>
-                    <Nav.Link>
-                      <Link className="link" to="/logout">
-                        <span className="icon-mob ">
-                          <FiLogOut />
-                        </span>
-                        <span className="text-mob">خرج</span>
-                      </Link>
-                    </Nav.Link>
+                    {!props.user ? (
+                      <>
+                        <Nav.Link>
+                          <Link className="link" to="/register">
+                            <span className="icon-mob ">
+                              <FaRegIdCard />
+                            </span>
+                            <span className="text-mob">ثبت نام</span>
+                          </Link>
+                        </Nav.Link>
+                        <Nav.Link>
+                          <Link className="link" to="/login">
+                            <span className="icon-mob ">
+                              <FiUsers />
+                            </span>
+                            <span className="text-mob">ورود</span>
+                          </Link>
+                        </Nav.Link>
+                      </>
+                    ) : (
+                      <Nav.Link>
+                        <Link className="link" to="/logout">
+                          <span className="icon-mob ">
+                            <FiLogOut />
+                          </span>
+                          <span className="text-mob">خرج</span>
+                        </Link>
+                      </Nav.Link>
+                    )}
                   </Nav>
                 </Navbar.Collapse>
               </Container>

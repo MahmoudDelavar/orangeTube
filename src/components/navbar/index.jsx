@@ -5,7 +5,7 @@ import Navigationbar from "./navigationbar";
 const Nav = (props) => {
   return (
     <>
-      <MobNav />
+      <MobNav user={props.user} />
       <Navigationbar user={props.user} />
     </>
   );
