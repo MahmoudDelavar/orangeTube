@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./navStyle.css";
-import { useEffect } from "react";
 //====================================================
 
 const MobNav = (props) => {
