@@ -7,9 +7,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./navStyle.css";
+import { useSelector } from "react-redux";
 //====================================================
 
-const MobNav = (props) => {
+const MobNav = () => {
+  const islogin = useSelector((state) => state.isloginState.message);
   return (
     <>
       <div className="row ">
@@ -48,7 +50,7 @@ const MobNav = (props) => {
                         <span className="text-mob"> بازی </span>
                       </Link>
                     </Nav.Link>
-                    {!props.user ? (
+                    {!islogin ? (
                       <>
                         <Nav.Link>
                           <Link className="link" to="/register">

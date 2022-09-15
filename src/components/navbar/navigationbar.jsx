@@ -4,9 +4,11 @@ import { BiGame } from "react-icons/bi";
 import { FaRegIdCard } from "react-icons/fa";
 import { useEffect } from "react";
 import "./navStyle.css";
-
+import { useSelector } from "react-redux";
 //====================================================
-const Navigationbar = (props) => {
+const Navigationbar = () => {
+  const islogin = useSelector((state) => state.isloginState.message);
+
   useEffect(() => {
     const list = document.querySelectorAll(".list");
     function activLink() {
@@ -16,6 +18,9 @@ const Navigationbar = (props) => {
     list.forEach((item) => item.addEventListener("click", activLink));
   });
 
+  useEffect(() => {
+    console.log("islogin=", islogin);
+  });
   return (
     <>
       <div className="container">
@@ -48,7 +53,7 @@ const Navigationbar = (props) => {
                       <span className="text"> بازی </span>
                     </Link>
                   </li>
-                  {!props.user ? (
+                  {!islogin ? (
                     <>
                       <li className="list">
                         <Link className="link" to="/login">

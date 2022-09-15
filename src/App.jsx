@@ -6,31 +6,26 @@ import Videos from "./components/videos";
 import Games from "./components/games";
 import Footer from "./components/footer";
 import Login from "./components/auth/login";
+
 import Logout from "./components/auth/logout";
 import Register from "./components/auth/register";
 import LandingPage from "./components/videos/landingPage";
 import UploadVideo from "./components/videos/uploadVideo";
-import { useState } from "react";
+
 import { useEffect } from "react";
-import axios from "axios";
+
+import { useDispatch, useSelector } from "react-redux";
+import { isLogin } from "./StateManagement/actions/userActions";
 //====================================================
 const App = () => {
-  const [user, setUser] = useState(null);
-  useEffect(async () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
     const token = localStorage.getItem("token");
-    if (!token) {
-      setUser(null);
-      return;
-    }
-    const response = await axios.post(
-      "http://localhost:4000/api/auth/userbytoken",
-      { token }
-    );
-    setUser(response.data.data);
+    dispatch(isLogin({ token }));
   }, []);
   return (
     <>
-      <Nav user={user} />
+      <Nav />
       <div className="container ">
         <div className="row justify-content-center ">
           <div className="col-12 align-content-center">
