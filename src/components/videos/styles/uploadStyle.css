@@ -65,3 +65,19 @@
   background-color: rgb(255, 255, 255);
   transition: 1s;
 }
+.box {
+  margin: 10px;
+  display: inline-block;
+  border-radius: 15px;
+}
+.link {
+  text-decoration: none;
+  color: rgb(148, 154, 160);
+}
+.box:hover .link {
+  color: rgb(9, 53, 150);
+  transition: 1s;
+}
+.box:not(:hover) .link {
+  transition: 1s;
+}

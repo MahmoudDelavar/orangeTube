@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FiUsers, FiHome, FiVideo, FiLogOut } from "react-icons/fi";
 import { FaRegIdCard } from "react-icons/fa";
-
 import { BiGame } from "react-icons/bi";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";

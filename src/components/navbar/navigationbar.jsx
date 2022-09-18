@@ -17,10 +17,6 @@ const Navigationbar = () => {
     }
     list.forEach((item) => item.addEventListener("click", activLink));
   });
-
-  useEffect(() => {
-    console.log("islogin=", islogin);
-  });
   return (
     <>
       <div className="container">

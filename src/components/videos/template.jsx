@@ -1,7 +1,14 @@
 import "./styles/templateStyle.css";
 //==================================================
 
-const Template = ({ title, description, thumbnail, duration }) => {
+const Template = ({
+  title,
+  description,
+  thumbnail,
+  duration,
+  avatar,
+  writer,
+}) => {
   const minutes = Math.floor(duration / 60);
   const seconds = Math.floor(duration - minutes * 60);
   return (
@@ -13,6 +20,14 @@ const Template = ({ title, description, thumbnail, duration }) => {
             className="card-img-top thumbnail"
             alt="thumbnail"
           />
+          <div>
+            <img
+              src={`http://localhost:4000/${avatar}`}
+              style={{ width: 50, height: 50, borderRadius: "50%" }}
+              alt=""
+            />
+            <span>{writer}</span>
+          </div>
           <span className="time">
             {minutes}:{seconds}
           </span>

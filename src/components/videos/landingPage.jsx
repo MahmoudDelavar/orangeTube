@@ -1,10 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Template from "./template";
 
 //==================================================
 const LandingPage = ({ title, description, thumbnail, duration }) => {
   const [videos, setVideos] = useState([]);
+  // const { userName, avatar } = useSelector(
+  //   (state) => state.isloginState.userInfo
+  // );
+
   useEffect(() => {
     axios
       .get("http://localhost:4000/api/videos/allVideos")
@@ -21,7 +26,9 @@ const LandingPage = ({ title, description, thumbnail, duration }) => {
         <div className="row">
           {videos.map((v, index) => (
             <Template
-              key={index}
+              key={index.i}
+              writer={v.writer && v.writer.userName}
+              avatar={v.writer && v.writer.avatarPath}
               title={v.title}
               description={v.description}
               thumbnail={v.thumbnail}

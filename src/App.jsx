@@ -6,14 +6,10 @@ import Videos from "./components/videos";
 import Games from "./components/games";
 import Footer from "./components/footer";
 import Login from "./components/auth/login";
-
 import Logout from "./components/auth/logout";
 import Register from "./components/auth/register";
-import LandingPage from "./components/videos/landingPage";
 import UploadVideo from "./components/videos/uploadVideo";
-
 import { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import { isLogin } from "./StateManagement/actions/userActions";
 //====================================================
