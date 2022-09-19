@@ -32,7 +32,7 @@ function isLogin(state = initionalState, action) {
     case IS_LOGIN_FAILED:
       return {
         sending: false,
-        userInfo: {},
+        userInfo: "",
         message: "",
         err: action.err,
       };

@@ -9,6 +9,7 @@ import Login from "./components/auth/login";
 import Logout from "./components/auth/logout";
 import Register from "./components/auth/register";
 import UploadVideo from "./components/videos/uploadVideo";
+import PlayVideo from "./components/videos/PlayVideo";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isLogin } from "./StateManagement/actions/userActions";
@@ -28,13 +29,14 @@ const App = () => {
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/videos" element={<Videos />} />
+              <Route path="/videos/:videoId" element={<PlayVideo />} />
               <Route path="/videos/uploadVideo" element={<UploadVideo />} />
               <Route path="/games" element={<Games />} />
               <Route path="/login" element={<Login />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/register" element={<Register />} />
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
       </div>

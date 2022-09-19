@@ -1,14 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Template from "./template";
 
 //==================================================
 const LandingPage = ({ title, description, thumbnail, duration }) => {
   const [videos, setVideos] = useState([]);
-  // const { userName, avatar } = useSelector(
-  //   (state) => state.isloginState.userInfo
-  // );
 
   useEffect(() => {
     axios
@@ -25,15 +23,17 @@ const LandingPage = ({ title, description, thumbnail, duration }) => {
       <div className="container ">
         <div className="row">
           {videos.map((v, index) => (
-            <Template
-              key={index.i}
-              writer={v.writer && v.writer.userName}
-              avatar={v.writer && v.writer.avatarPath}
-              title={v.title}
-              description={v.description}
-              thumbnail={v.thumbnail}
-              duration={v.duration}
-            />
+            <Link to={`/videos/${v._id}`}>
+              <Template
+                key={index.i}
+                writer={v.writer && v.writer.userName}
+                avatar={v.writer && v.writer.avatarPath}
+                title={v.title}
+                description={v.description}
+                thumbnail={v.thumbnail}
+                duration={v.duration}
+              />
+            </Link>
           ))}
         </div>
       </div>
