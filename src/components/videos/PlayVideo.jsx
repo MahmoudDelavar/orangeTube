@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import SideVideo from "./sideVideo";
 
 const PlayVideo = () => {
   const { videoId } = useParams();
@@ -15,7 +16,7 @@ const PlayVideo = () => {
       .catch((err) => {
         console.log("faide loading", err);
       });
-  }, []);
+  });
   return (
     <>
       <div className="row mt-4">
@@ -42,7 +43,9 @@ const PlayVideo = () => {
           <p>{video.description}</p>
           <hr />
         </div>
-        <div className="col col-md-3 col-sm-12">side Video</div>
+        <div className="col col-md-3 col-sm-12 text-center">
+          <SideVideo />
+        </div>
       </div>
     </>
   );

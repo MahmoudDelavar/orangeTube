@@ -7,7 +7,7 @@ import "./styles/uploadStyle.css";
 const VideoPage = () => {
   return (
     <>
-      <div className="container ">
+      <div className="container-fluid ">
         <div className="row  justify-content-between">
           <div className="col  text-center">
             <div className="link-box">

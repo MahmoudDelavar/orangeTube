@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Template from "./template";
 
 //==================================================
-const LandingPage = ({ title, description, thumbnail, duration }) => {
+const LandingPage = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
