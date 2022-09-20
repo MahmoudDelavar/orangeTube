@@ -1,0 +1,8 @@
+.subscribe {
+  border-radius: 5px;
+  border: 1px solid white;
+  color: aliceblue;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  font-weight: 400;
+}

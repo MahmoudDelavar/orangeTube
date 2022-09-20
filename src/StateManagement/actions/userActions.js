@@ -6,7 +6,7 @@ import {
 } from "./actionTypes";
 
 //===================== Is Login Actions =====================
-export const isLoginRequest = (token) => ({
+export const isLoginRequest = ({ token }) => ({
   type: IS_LOGIN_REQUEST,
   token,
 });
@@ -22,9 +22,9 @@ export const isLoginFailed = (err) => ({
   err,
 });
 
-export const isLogin = (token) => {
+export const isLogin = ({ token }) => {
   return (dispatch) => {
-    dispatch(isLoginRequest(token));
+    dispatch(isLoginRequest({ token }));
     axios
       .post("http://localhost:4000/api/auth/userbytoken", { token })
       .then((res) => {

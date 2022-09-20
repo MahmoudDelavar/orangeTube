@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Subscribe from "../subscribe/subscribe";
 import SideVideo from "./sideVideo";
 
 const PlayVideo = () => {
@@ -20,13 +21,23 @@ const PlayVideo = () => {
   return (
     <>
       <div className="row mt-4">
-        <div className="col col-md-9 col-sm-12">
-          <video
-            controls
-            style={{ width: "100%" }}
-            src={`http://localhost:4000/${video.filePath}`}
-          ></video>
-          <h1>{video.title}</h1>
+        <div className="col col-md-9 col-sm-12 col-xs-12">
+          <div className="col-12">
+            <video
+              controls
+              style={{ width: "100%" }}
+              src={`http://localhost:4000/${video.filePath}`}
+            ></video>
+          </div>
+          <div className="row align-items-center">
+            <div className="col-9 ">
+              <h1>{video.title}</h1>
+            </div>
+            <div className="col-3 ">
+              <Subscribe userId={video.writer && video.writer._id} />
+            </div>
+          </div>
+
           <img
             style={{
               width: "40px",
@@ -43,7 +54,7 @@ const PlayVideo = () => {
           <p>{video.description}</p>
           <hr />
         </div>
-        <div className="col col-md-3 col-sm-12 text-center">
+        <div className="col col-md-3 col-sm-12 col-xs-12 text-center">
           <SideVideo />
         </div>
       </div>

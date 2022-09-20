@@ -20,7 +20,7 @@ const VideoPage = () => {
 
           <div className="col  text-center ">
             <div className="link-box">
-              <Link className="upload-link " to="mychannel">
+              <Link className="upload-link " to="/mychannel">
                 <AiFillVideoCamera size={130} />
                 <p> کانال من</p>
               </Link>
