@@ -22,8 +22,11 @@ const App = () => {
     const token = localStorage.getItem("token");
     dispatch(isLogin({ token }));
   }, []);
+  const userName = useSelector((state) => state.isloginState.userInfo.userName);
+
   return (
     <>
+      {userName ? <p>{`welcome ${userName}`}</p> : <p>{`unregisterd`}</p>}
       <Nav />
       <div className="container ">
         <div className="row justify-content-center ">
