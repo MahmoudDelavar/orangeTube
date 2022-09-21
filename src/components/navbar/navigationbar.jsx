@@ -41,12 +41,13 @@ const Navigationbar = () => {
                       <span className="text"> ویدئو ها</span>
                     </Link>
                   </li>
+
                   <li className="list">
-                    <Link className="link" to="/games">
+                    <Link className="link" to="/subscribtionsPage">
                       <span className="icon">
                         <BiGame />
                       </span>
-                      <span className="text"> بازی </span>
+                      <span className="text"> دنبال شده ها </span>
                     </Link>
                   </li>
                   {!islogin ? (

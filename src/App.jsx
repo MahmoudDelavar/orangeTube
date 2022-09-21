@@ -3,17 +3,17 @@ import "./appStyle.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/home";
 import Videos from "./components/videos";
-import Games from "./components/games";
+
 import Footer from "./components/footer";
 import Login from "./components/auth/login";
 import Logout from "./components/auth/logout";
 import Register from "./components/auth/register";
 import UploadVideo from "./components/videos/uploadVideo";
-
 import PlayVideo from "./components/videos/PlayVideo";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isLogin } from "./StateManagement/actions/userActions";
+import SubscribtionsPage from "./components/subscribe/subscribtionsPage";
 
 //====================================================
 const App = () => {
@@ -36,7 +36,11 @@ const App = () => {
               <Route path="/videos" element={<Videos />} />
               <Route path="/videos/:videoId" element={<PlayVideo />} />
               <Route path="/videos/uploadVideo" element={<UploadVideo />} />
-              <Route path="/games" element={<Games />} />
+              <Route
+                path="/subscribtionsPage"
+                element={<SubscribtionsPage />}
+              />
+
               <Route path="/login" element={<Login />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/register" element={<Register />} />
