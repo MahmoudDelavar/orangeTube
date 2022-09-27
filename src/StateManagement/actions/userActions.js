@@ -33,8 +33,7 @@ export const isLogin = ({ token }) => {
         dispatch(isLoginSuccess(userInfo, message));
       })
       .catch((err) => {
-        const ERR = "invalid Token";
-        dispatch(ERR);
+        dispatch(err);
       });
   };
 };

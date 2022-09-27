@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
-
 import { Link } from "react-router-dom";
+//====================================================
 
 const SideVideo = () => {
   const [videos, setVideos] = useState([]);
@@ -20,7 +20,7 @@ const SideVideo = () => {
     <>
       {videos.map((v, index) => (
         <>
-          <div className="row align-items-center mb-2">
+          <div key={index} className="row align-items-center mb-2">
             <div className="col-3 text-letf ">
               <span>{v.title}</span>
               <br />

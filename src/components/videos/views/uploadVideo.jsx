@@ -1,4 +1,4 @@
-import "./styles/uploadStyle.css";
+import "../styles/uploadStyle.css";
 import { FaUpload } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";

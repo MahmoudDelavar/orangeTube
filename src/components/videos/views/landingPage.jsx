@@ -22,9 +22,8 @@ const LandingPage = () => {
       <h3>جدید ترین ویدئو ها </h3>
       <div className="container ">
         {videos.map((v, index) => (
-          <Link to={`/videos/${v._id}`}>
+          <Link key={index} to={`/videos/${v._id}`}>
             <Template
-              key={index.i}
               writer={v.writer && v.writer.userName}
               avatar={v.writer && v.writer.avatarPath}
               title={v.title}

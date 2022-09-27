@@ -8,12 +8,12 @@ import Footer from "./components/footer";
 import Login from "./components/auth/login";
 import Logout from "./components/auth/logout";
 import Register from "./components/auth/register";
-import UploadVideo from "./components/videos/uploadVideo";
-import PlayVideo from "./components/videos/PlayVideo";
+import UploadVideo from "./components/videos/views/uploadVideo";
+import PlayVideo from "./components/videos/views/PlayVideo";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isLogin } from "./StateManagement/actions/userActions";
-import SubscribtionsPage from "./components/subscribe/subscribtionsPage";
+import SubscribtionsPage from "./components/videos/subscribe/subscribtionsPage";
 
 //====================================================
 const App = () => {

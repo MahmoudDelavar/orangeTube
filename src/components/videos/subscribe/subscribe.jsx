@@ -8,7 +8,7 @@ import "./style.css";
 //===============================
 const Subscribe = (props) => {
   //------------------------
-  const [subsceibeCount, setSubsceibeCount] = useState(0);
+  const [subsceibeCount, setSubsceibeCount] = useState();
   const [isSubscribe, setisSubscribe] = useState("");
   //------------------------
   const userTo = props.userId;
@@ -19,11 +19,9 @@ const Subscribe = (props) => {
   const handleChlick = () => {
     if (isSubscribe) {
       //---------- Unsubscribe
-
       axios
         .post("http://localhost:4000/api/subscribe/unsubscribe", { info })
         .then((res) => {
-          console.log(res.data.message);
           setisSubscribe(!isSubscribe);
           setSubsceibeCount(subsceibeCount - 1);
         })
@@ -49,18 +47,17 @@ const Subscribe = (props) => {
     axios
       .post("http://localhost:4000/api/subscribe/subscribeNumber", { userTo })
       .then((res) => {
-        // console.log("number of subscribes:", res.data.data);
         setSubsceibeCount(res.data.data);
       })
       .catch((err) => {
         console.log("subscribe number err", err);
       });
+
     // ---Check subscribed or not
     axios
       .post("http://localhost:4000/api/subscribe/isSubscribe", { info })
       .then((res) => {
         setisSubscribe(res.data.data);
-        // console.log("subscribe or not", res.data.data);
       })
       .catch((err) => {
         console.log("subscribe or not err", err);

@@ -1,4 +1,4 @@
-import "./styles/templateStyle.css";
+import "../styles/templateStyle.css";
 //==================================================
 
 const Template = ({

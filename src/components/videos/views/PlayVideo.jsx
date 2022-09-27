@@ -2,24 +2,45 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Comment from "../comment/coment";
 import Subscribe from "../subscribe/subscribe";
 import SideVideo from "./sideVideo";
 
+//====================================================
+
 const PlayVideo = () => {
+  //--------------------------------------------
   const { videoId } = useParams();
   const [video, setVideo] = useState([]);
+  const [commentList, setCommentList] = useState([]);
+  const [showComment, setShowComment] = useState(false);
 
+  //--------------------------------------------
   useEffect(() => {
+    //__Load Selected Video__
     axios
       .post("http://localhost:4000/api/videos/getVideo", { videoId })
       .then((res) => {
         setVideo(res.data.data);
-      })
-      .catch((err) => {
-        console.log("faide loading", err);
       });
   });
 
+  //------------------------------------------
+  const updateComments = (newComment) => {
+    setCommentList(commentList.concat(newComment));
+  };
+  //------------------------------------------
+  const handleLoadComments = () => {
+    //__Load This Video Comments__
+    axios
+      .post("http://localhost:4000/api/comments/getComments", { videoId })
+      .then((res) => {
+        setCommentList(res.data.data);
+        setShowComment(!showComment);
+      });
+  };
+
+  //------------------------------------------
   if (video.writer) {
     return (
       <>
@@ -33,8 +54,20 @@ const PlayVideo = () => {
               ></video>
             </div>
             <div className="row align-items-center">
-              <div className="col-9 ">
+              <div className="col-7 ">
                 <h1>{video.title}</h1>
+              </div>
+
+              {/* show Comment */}
+              <div className="col-2 ">
+                <button
+                  style={{
+                    backgroundColor: `${showComment ? "#AAAAAA" : "#68eb11"}`,
+                  }}
+                  onClick={handleLoadComments}
+                >
+                  comments
+                </button>
               </div>
               <div className="col-3 ">
                 <Subscribe userId={video.writer && video.writer._id} />
@@ -56,6 +89,16 @@ const PlayVideo = () => {
             <span>{video.writer && video.writer.userName}</span>
             <p>{video.description}</p>
             <hr />
+            <div className="row">
+              <div className="col-6">
+                <Comment
+                  postId={video._id}
+                  refreshFunction={updateComments}
+                  commentList={commentList}
+                  showComment={showComment}
+                />
+              </div>
+            </div>
           </div>
           <div className="col col-md-3 col-sm-12 col-xs-12 text-center">
             <SideVideo />

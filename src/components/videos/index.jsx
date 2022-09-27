@@ -1,5 +1,4 @@
-import LandingPage from "./landingPage";
-import UploadVideo from "./uploadVideo";
+import LandingPage from "./views/landingPage";
 import { Link } from "react-router-dom";
 import { AiOutlinePlusSquare, AiFillVideoCamera } from "react-icons/ai";
 import "./styles/uploadStyle.css";
