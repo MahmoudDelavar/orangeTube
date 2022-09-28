@@ -13,28 +13,26 @@ const Template = ({
   const seconds = Math.floor(duration - minutes * 60);
   return (
     <>
-      <div className="col">
-        <div className="card template " style={{ width: "18rem" }}>
+      <div className="template" style={{ width: "18rem" }}>
+        <img
+          src={`http://localhost:4000/${thumbnail}`}
+          className="card-img-top thumbnail"
+          alt="thumbnail"
+        />
+        <div className="temp-avatar-box">
           <img
-            src={`http://localhost:4000/${thumbnail}`}
-            className="card-img-top thumbnail"
-            alt="thumbnail"
+            className="temp-avatar"
+            src={`http://localhost:4000/${avatar}`}
+            alt="failed"
           />
-          <div>
-            <img
-              src={`http://localhost:4000/${avatar}`}
-              style={{ width: 50, height: 50, borderRadius: "50%" }}
-              alt=""
-            />
-            <span>{writer}</span>
-          </div>
-          <span className="time">
-            {minutes}:{seconds}
-          </span>
-          <div className="card-body">
-            <h4>{title}</h4>
-            <p className="card-text">{description}</p>
-          </div>
+          <p className="temp-userName">{writer}</p>
+        </div>
+        <span className="temp-time">
+          {minutes}:{seconds}
+        </span>
+        <div className="card-body">
+          <p className="temp-title">{title}</p>
+          <p className="temp-description">{description}</p>
         </div>
       </div>
     </>

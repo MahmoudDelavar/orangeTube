@@ -1,16 +1,53 @@
+.tempBox {
+  padding: 10px;
+  border: 1px solid rgba(216, 216, 216, 0.685);
+  border-radius: 5px;
+  width: 310px;
+  height: 400px;
+}
+
+.tempBox:hover {
+  background-color: rgb(208, 234, 255);
+
+  border: 0;
+}
+
 .template {
-  display: none;
-  margin: 5px;
+  position: absolute;
+  color: black;
 }
 .thumbnail {
   position: relative;
 }
-.time {
+
+.temp-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.temp-userName {
+  padding-right: 5px;
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 22px;
+}
+.temp-time {
   position: absolute;
+  font-size: 20px;
   top: 170px;
   right: 10px;
   padding: 5px;
   border-radius: 5px;
   background-color: rgb(53, 52, 52);
   color: azure;
+}
+.temp-title {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+.temp-description {
+  padding: 0;
+  margin: 0;
+  text-align: justify;
 }
