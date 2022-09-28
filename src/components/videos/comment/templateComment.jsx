@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
+import LikeAndDisLike from "../LikeAndDislike/Like&Disike";
+
 //==========================================================
 const TemplateComment = (props) => {
   //------------------------
@@ -21,6 +23,7 @@ const TemplateComment = (props) => {
       />
       <span>{props.comment.writer && props.comment.writer.userName}</span>
       <p>{props.comment.text}</p>
+      <LikeAndDisLike comment commentId={props.comment._id} />
     </>
   );
 };

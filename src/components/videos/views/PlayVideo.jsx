@@ -3,9 +3,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Comment from "../comment/coment";
+import LikeAndDisLike from "../LikeAndDislike/Like&Disike";
 import Subscribe from "../subscribe/subscribe";
 import SideVideo from "./sideVideo";
-
+import { AiOutlineComment } from "react-icons/ai";
 //====================================================
 
 const PlayVideo = () => {
@@ -53,13 +54,11 @@ const PlayVideo = () => {
                 src={`http://localhost:4000/${video.filePath}`}
               ></video>
             </div>
-            <div className="row align-items-center">
-              <div className="col-7 ">
+            <div className="row align-items-center ">
+              <div className="col-4 ">
                 <h1>{video.title}</h1>
               </div>
-
-              {/* show Comment */}
-              <div className="col-2 ">
+              <div className="col-8 ">
                 <button
                   style={{
                     backgroundColor: `${showComment ? "#AAAAAA" : "#68eb11"}`,
@@ -68,8 +67,8 @@ const PlayVideo = () => {
                 >
                   comments
                 </button>
-              </div>
-              <div className="col-3 ">
+
+                <LikeAndDisLike video videoId={videoId} />
                 <Subscribe userId={video.writer && video.writer._id} />
               </div>
             </div>
@@ -90,7 +89,7 @@ const PlayVideo = () => {
             <p>{video.description}</p>
             <hr />
             <div className="row">
-              <div className="col-6">
+              <div className="col">
                 <Comment
                   postId={video._id}
                   refreshFunction={updateComments}

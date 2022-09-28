@@ -60,7 +60,7 @@ const Comment = (props) => {
             </form>
           </div>
           {showComment && (
-            <div className="col-6">
+            <div className="col-6 mb-3">
               {commentList.map((comment, index) => (
                 <TemplateComment
                   key={index}
