@@ -105,39 +105,44 @@ const Login = () => {
           lable="رمز عبور"
           icon={<Key />}
         />
-        <div className="text-center d-grid gap-2 mt-4 ">
+        <div className="text-center d-grid gap-2 mt-2 ">
           <button
             disabled={sending}
             type="submit"
-            className="btn btn-outline-primary "
+            className="btn btn-outline-secondaey "
           >
             ورود
           </button>
         </div>
-        <div className="row text-center mt-4 align-items-center">
+        <div className="row text-center mt-2 align-items-center">
           <p>ورود با شبکه های اجتماعی</p>
-
-          <div className="col ">
-            <Link to="#">
-              <FaTwitter className="icon-login" size={50} />
-            </Link>
-          </div>
-          <div className="col ">
-            <Link to="#">
-              <FaGoogle className="col icon-login" size={50} />
-            </Link>
-          </div>
-          <div className="col ">
-            <Link to="#">
-              <FaFacebook className="col icon-login" size={50} />
-            </Link>
-          </div>
-          <div className="col  ">
-            <Link to="#">
-              <FaInstagram className="col icon-login" size={50} />
-            </Link>
+          <div className="row">
+            <div className="col ">
+              <Link to="#">
+                <FaTwitter className="icon-login" size={50} />
+              </Link>
+            </div>
+            <div className="col ">
+              <Link to="#">
+                <FaGoogle className="col icon-login" size={50} />
+              </Link>
+            </div>
+            <div className="col ">
+              <Link to="#">
+                <FaFacebook className="col icon-login" size={50} />
+              </Link>
+            </div>
+            <div className="col  ">
+              <Link to="#">
+                <FaInstagram className="col icon-login" size={50} />
+              </Link>
+            </div>
           </div>
         </div>
+
+        <Link className="" to="/register">
+          <button className="btn btn-info mt-2">ثبت نام</button>
+        </Link>
       </form>
     </>
   );

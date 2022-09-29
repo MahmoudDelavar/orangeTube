@@ -9,7 +9,7 @@ import "./navStyle.css";
 import { useSelector } from "react-redux";
 //====================================================
 
-const MobNav = () => {
+const MobileNav = () => {
   const islogin = useSelector((state) => state.isloginState.message);
   return (
     <>
@@ -89,4 +89,4 @@ const MobNav = () => {
   );
 };
 
-export default MobNav;
+export default MobileNav;

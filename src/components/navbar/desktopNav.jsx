@@ -6,8 +6,11 @@ import { useEffect } from "react";
 import "./navStyle.css";
 import { useSelector } from "react-redux";
 //====================================================
-const Navigationbar = () => {
+const DesktopNav = () => {
   const islogin = useSelector((state) => state.isloginState.message);
+  const { userName, avatar } = useSelector(
+    (state) => state.isloginState.userInfo
+  );
 
   useEffect(() => {
     const list = document.querySelectorAll(".list");
@@ -42,14 +45,6 @@ const Navigationbar = () => {
                     </Link>
                   </li>
 
-                  <li className="list">
-                    <Link className="link" to="/subscribtionsPage">
-                      <span className="icon">
-                        <BiGame />
-                      </span>
-                      <span className="text"> دنبال شده ها </span>
-                    </Link>
-                  </li>
                   {!islogin ? (
                     <>
                       <li className="list">
@@ -58,14 +53,6 @@ const Navigationbar = () => {
                             <FiLogIn />
                           </span>
                           <span className="text">ورود</span>
-                        </Link>
-                      </li>
-                      <li className="list">
-                        <Link className="link" to="/register">
-                          <span className="icon">
-                            <FaRegIdCard />
-                          </span>
-                          <span className="text">ثبت نام</span>
                         </Link>
                       </li>
                     </>
@@ -80,16 +67,28 @@ const Navigationbar = () => {
                     </li>
                   )}
                   <div className="indicator"></div>
+                  <div className="user">
+                    {userName ? (
+                      <>
+                        <span>{`${userName}`}</span>
+                        <img
+                          className="user-avatar"
+                          src={`http://localhost:4000/${avatar}`}
+                          alt=""
+                        />
+                      </>
+                    ) : (
+                      <p>{`Unregisterd`}</p>
+                    )}
+                  </div>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-
-        {/* mobile size menu */}
       </div>
     </>
   );
 };
 
-export default Navigationbar;
+export default DesktopNav;

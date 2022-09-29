@@ -1,14 +1,14 @@
-import MobNav from "./mobNav";
-import Navigationbar from "./navigationbar";
+import MobileNav from "./mobileNav";
+import DesktopNav from "./desktopNav";
 //====================================================
 
-const Nav = (props) => {
+const Navbar = (props) => {
   return (
     <>
-      <MobNav user={props.user} />
-      <Navigationbar user={props.user} />
+      <MobileNav />
+      <DesktopNav />
     </>
   );
 };
 
-export default Nav;
+export default Navbar;

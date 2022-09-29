@@ -20,12 +20,12 @@
   margin-top: 40px;
   position: relative;
   width: 95%;
-  height: 110px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(130, 134, 138);
-  border-top-left-radius: 90px;
+  border-bottom-left-radius: 90px;
   border-bottom-right-radius: 90px;
 }
 
@@ -88,7 +88,7 @@
 
 .indicator {
   position: absolute;
-  top: -30%;
+  top: -40%;
   right: 45px;
   width: 80px;
   height: 80px;
@@ -135,6 +135,8 @@
 .mob-main {
   margin: auto;
   background-color: black;
+  display: block;
+  z-index: 999;
 }
 .navbar-toggler-icon {
   background-color: #ce5007;
@@ -144,4 +146,19 @@
 
 .basic-navbar-nav {
   background-color: red;
+}
+
+.user {
+  position: absolute;
+  left: 13px;
+  color: rgb(2, 2, 2);
+  background-color: #b9b9b9;
+  border-radius: 30%;
+  padding: 3px 3px 3px 0;
+}
+.user .user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
 }

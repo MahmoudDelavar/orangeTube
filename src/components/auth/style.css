@@ -1,8 +1,12 @@
 .main-box {
-  background-color: antiquewhite;
-  max-width: 500px;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(143, 143, 143);
+  border-radius: 5px;
+  max-width: 350px;
   padding: 10px;
   margin: auto;
+  margin-top: 5px;
+  color: rgb(0, 0, 0);
 }
 .avatar-input {
   opacity: 0;

@@ -1,9 +1,8 @@
-import Nav from "./components/navbar/";
+import Navbar from "./components/navbar/";
 import "./appStyle.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/home";
 import Videos from "./components/videos";
-
 import Footer from "./components/footer";
 import Login from "./components/auth/login";
 import Logout from "./components/auth/logout";
@@ -26,8 +25,7 @@ const App = () => {
 
   return (
     <>
-      {userName ? <p>{`welcome ${userName}`}</p> : <p>{`unregisterd`}</p>}
-      <Nav />
+      <Navbar />
       <div className="container ">
         <div className="row justify-content-center ">
           <div className="col-12 align-content-center">
