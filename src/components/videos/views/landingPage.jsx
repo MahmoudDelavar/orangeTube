@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+
 import Template from "./template";
 import "./../styles/templateStyle.css";
+import { Link, Outlet } from "react-router-dom";
+import { AiOutlinePlusSquare, AiFillVideoCamera } from "react-icons/ai";
+import { FaUpload } from "react-icons/fa";
+
 //==================================================
 const LandingPage = () => {
   const [videos, setVideos] = useState([]);

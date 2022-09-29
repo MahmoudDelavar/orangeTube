@@ -1,0 +1,23 @@
+.side-box {
+  background-color: rgb(230, 230, 230);
+  height: 700px;
+  overflow-y: scroll;
+}
+
+.side-video-title {
+  font-size: larger;
+  font-weight: 600;
+  background-color: rgb(255, 154, 38);
+}
+
+.side-video-item {
+  margin-bottom: 10px;
+}
+
+.side-video-info {
+  padding: 0;
+}
+
+.side-video-thumbnail {
+  padding: 0;
+}

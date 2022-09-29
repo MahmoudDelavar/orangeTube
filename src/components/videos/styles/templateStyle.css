@@ -7,8 +7,7 @@
 }
 
 .tempBox:hover {
-  background-color: rgb(208, 234, 255);
-
+  background-color: rgba(255, 94, 0, 0.205);
   border: 0;
 }
 

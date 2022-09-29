@@ -6,19 +6,21 @@ import Comment from "../comment/coment";
 import LikeAndDisLike from "../LikeAndDislike/Like&Disike";
 import Subscribe from "../subscribe/subscribe";
 import SideVideo from "./sideVideo";
-import { AiOutlineComment } from "react-icons/ai";
-//====================================================
+import { Link, Outlet } from "react-router-dom";
+import { AiOutlineComment, AiFillVideoCamera } from "react-icons/ai";
+import { FaUpload } from "react-icons/fa";
+//================================================================
 
 const PlayVideo = () => {
-  //--------------------------------------------
+  //------------------States And Initional Data--------------------
   const { videoId } = useParams();
   const [video, setVideo] = useState([]);
   const [commentList, setCommentList] = useState([]);
   const [showComment, setShowComment] = useState(false);
 
-  //--------------------------------------------
+  //--------------------------Life Sycel--------------------------
+  //__Load Selected Video__
   useEffect(() => {
-    //__Load Selected Video__
     axios
       .post("http://localhost:4000/api/videos/getVideo", { videoId })
       .then((res) => {
@@ -26,13 +28,14 @@ const PlayVideo = () => {
       });
   });
 
-  //------------------------------------------
+  //-----------------------Personal Functions-----------------------
+  //__Uptated Comments(last Comment)__
   const updateComments = (newComment) => {
     setCommentList(commentList.concat(newComment));
   };
-  //------------------------------------------
+
+  //__Load This Video Comments(All Comments)__
   const handleLoadComments = () => {
-    //__Load This Video Comments__
     axios
       .post("http://localhost:4000/api/comments/getComments", { videoId })
       .then((res) => {
@@ -41,12 +44,33 @@ const PlayVideo = () => {
       });
   };
 
-  //------------------------------------------
+  //================================================================
   if (video.writer) {
     return (
       <>
+        <div className="row  justify-content-between">
+          <div className="col  text-center">
+            <div className="link-box">
+              <Link className="upload-link" to="uploadVideo">
+                <FaUpload size={40} />
+                <p>آپلود ویدئو</p>
+              </Link>
+            </div>
+          </div>
+
+          <div className="col  text-center ">
+            <div className="link-box">
+              <Link className="upload-link " to="/subscribtionsPage">
+                <AiFillVideoCamera size={40} />
+                <p>کاربران دنبال شده</p>
+              </Link>
+            </div>
+          </div>
+          <hr />
+        </div>
         <div className="row mt-4">
-          <div className="col col-md-9 col-sm-12 col-xs-12">
+          <div className=" col-md-9 col-sm-12 col-xs-12 ">
+            {/* ________________Video Player________________ */}
             <div className="col-12">
               <video
                 controls
@@ -54,40 +78,47 @@ const PlayVideo = () => {
                 src={`http://localhost:4000/${video.filePath}`}
               ></video>
             </div>
-            <div className="row align-items-center ">
-              <div className="col-4 ">
-                <h1>{video.title}</h1>
-              </div>
-              <div className="col-8 ">
-                <button
-                  style={{
-                    backgroundColor: `${showComment ? "#AAAAAA" : "#68eb11"}`,
-                  }}
-                  onClick={handleLoadComments}
-                >
-                  comments
-                </button>
 
-                <LikeAndDisLike video videoId={videoId} />
-                <Subscribe userId={video.writer && video.writer._id} />
+            {/* ___Video Detailes (sub - Likes - comment)___ */}
+            <div className="row   ">
+              <div className="row  justify-content-end">
+                <div className="col-3 text-left ">
+                  <button onClick={handleLoadComments}>
+                    <AiOutlineComment size={30} />
+                  </button>
+                </div>
+                <div className="col-3">
+                  <LikeAndDisLike className=" " video videoId={videoId} />
+                </div>
+                <div className="col-3">
+                  <Subscribe userId={video.writer && video.writer._id} />
+                </div>
+              </div>
+
+              {/* ______Video Detailes (title - Writer - Description)______ */}
+              <div className="row">
+                <h1>{video.title}</h1>
+                <div>
+                  <img
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      marginLeft: "5px",
+                      borderRadius: "50%",
+                    }}
+                    src={`http://localhost:4000/${
+                      video.writer && video.writer.avatarPath
+                    }`}
+                    alt=""
+                  />
+                  <span>{video.writer && video.writer.userName}</span>
+                </div>
+                <p>{video.description}</p>
+                <hr />
               </div>
             </div>
 
-            <img
-              style={{
-                width: "40px",
-                height: "40px",
-                marginLeft: "5px",
-                borderRadius: "50%",
-              }}
-              src={`http://localhost:4000/${
-                video.writer && video.writer.avatarPath
-              }`}
-              alt=""
-            />
-            <span>{video.writer && video.writer.userName}</span>
-            <p>{video.description}</p>
-            <hr />
+            {/* ________Commetns(Write Box And View All Comments)________ */}
             <div className="row">
               <div className="col">
                 <Comment
@@ -99,7 +130,9 @@ const PlayVideo = () => {
               </div>
             </div>
           </div>
-          <div className="col col-md-3 col-sm-12 col-xs-12 text-center">
+
+          {/* ____Sidebar(More Video To Show)____ */}
+          <div className=" col-md-3 col-sm-12 col-xs-12 text-center">
             <SideVideo />
           </div>
         </div>
