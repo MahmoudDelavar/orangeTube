@@ -1,5 +1,5 @@
 import "../styles/uploadStyle.css";
-import { FaUpload } from "react-icons/fa";
+import { FaUpload, FaPlus } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { FaRegIdCard } from "react-icons/fa";
 import { FiUsers, FiHome, FiLogOut, FiVideo, FiLogIn } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { FcPicture } from "react-icons/fc";
 //==================================================
 const UploadVideo = () => {
   const islogin = useSelector((state) => state.isloginState.message);
@@ -19,6 +20,7 @@ const UploadVideo = () => {
   const [duration, setDuration] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [serverMessage, setServerMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   //-------------------------- send data to backend ---------------------------------
   //____handle submit___
@@ -40,10 +42,6 @@ const UploadVideo = () => {
     axios
       .post("http://localhost:4000/api/videos/addvideo", data)
       .then((res) => {
-        console.log(res.data.message);
-        console.log("res=", res);
-        console.log("userID=", userId);
-        console.log("isLonin=", islogin);
         setServerMessage(res.data.message);
         setTimeout(() => {
           window.location = "/videos";
@@ -57,6 +55,7 @@ const UploadVideo = () => {
   };
   //____handle Load Video___
   const handleSelect = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     setVideo(e.target.files[0]);
     const form = new FormData();
@@ -100,16 +99,13 @@ const UploadVideo = () => {
               <div className="alert alert-success">{serverMessage}</div>
             )}
             <div className="col-sm-12 col-md-9 ">
-              <header>
-                <h1>Upload video</h1>
-              </header>
               <form
                 className="upload-form"
                 encType="multipart/form-data"
                 onSubmit={(e) => handleSubmit(e)}
               >
-                <div className="row   ">
-                  <div className="col-3 mb-3 upload">
+                <div className="row align-items-center ">
+                  <div className="col mb-3 upload">
                     <label htmlFor="upload" class="form-label">
                       <FaUpload style={{ fontSize: 40 }} />
                     </label>
@@ -124,14 +120,20 @@ const UploadVideo = () => {
                       }}
                     />
                   </div>
-                  <div className="col-9 mb-3">
-                    {thumbnail !== "" && (
+                  <div className="col mb-3">
+                    {thumbnail !== "" ? (
                       <div>
                         <img
                           src={`http://localhost:4000/${thumbnail}`}
                           alt="faild Load"
                         />
                       </div>
+                    ) : !isLoading ? (
+                      <div>
+                        <FcPicture size={50} /> <p>پیش نمایش</p>
+                      </div>
+                    ) : (
+                      <>Isloading</>
                     )}
                   </div>
                 </div>

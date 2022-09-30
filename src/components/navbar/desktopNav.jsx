@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { FiUsers, FiHome, FiLogOut, FiVideo, FiLogIn } from "react-icons/fi";
-import { BiGame } from "react-icons/bi";
-import { FaRegIdCard } from "react-icons/fa";
+import { FiUsers, FiHome, FiLogOut, FiVideo } from "react-icons/fi";
+
 import { useEffect } from "react";
 import "./navStyle.css";
 import { useSelector } from "react-redux";
+
 //====================================================
 const DesktopNav = () => {
   const islogin = useSelector((state) => state.isloginState.message);
@@ -50,7 +50,7 @@ const DesktopNav = () => {
                       <li className="list">
                         <Link className="link" to="/login">
                           <span className="icon">
-                            <FiLogIn />
+                            <FiUsers />
                           </span>
                           <span className="text">ورود</span>
                         </Link>

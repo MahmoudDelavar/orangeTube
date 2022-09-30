@@ -37,7 +37,7 @@ const Login = () => {
           setServerMsg(res.data.message);
           e.target.reset();
           setTimeout(() => {
-            window.location = "/home";
+            window.location = "/videos";
           }, 2000);
         })
         .catch((err) => {
@@ -106,11 +106,7 @@ const Login = () => {
           icon={<Key />}
         />
         <div className="text-center d-grid gap-2 mt-2 ">
-          <button
-            disabled={sending}
-            type="submit"
-            className="btn btn-outline-secondaey "
-          >
+          <button disabled={sending} type="submit" className="btn btn-info ">
             ورود
           </button>
         </div>

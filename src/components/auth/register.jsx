@@ -41,19 +41,20 @@ const Register = () => {
     const password = form.get("password");
     const re_password = form.get("re-password");
     const email = form.get("email");
+    console.log(avatarPath);
 
     const userInfo = { userName, password, email, avatarPath };
     const isValid = await validate(userInfo);
+
     if (re_password === password) {
       if (isValid) {
         axios
           .post("http://localhost:4000/api/auth/register", userInfo)
           .then((res) => {
-            console.log("secc aCIOS", res.data.message);
             setServerMsg(res.data.message);
             e.target.reset();
             setTimeout(() => {
-              window.location = "/home";
+              window.location = "/login";
             }, 2000);
           })
           .catch((err) => {

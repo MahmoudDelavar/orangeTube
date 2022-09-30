@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Template from "../views/template";
 
 //====================================================
@@ -15,28 +16,38 @@ const SubscribtionsPage = () => {
         setVideos(res.data.data);
       })
       .catch((err) => {
-        console.log("failed to Unsubscribe");
+        console.log("failed to load Subscribed:", err);
       });
   }, []);
   //--------
   return (
     <>
-      <div className="row">
-        <div className="col text-center">
+      <div className="container">
+        {console.log(videos)}
+
+        <div className="row">
           {videos.length !== 0 ? (
             <>
               <p>شما این کاربران را دنبال میکنید </p>
-
               {videos.map((v, index) => (
-                <Template
-                  key={index.i}
-                  writer={v.writer && v.writer.userName}
-                  avatar={v.writer && v.writer.avatarPath}
-                  title={v.title}
-                  description={v.description}
-                  thumbnail={v.thumbnail}
-                  duration={v.duration}
-                />
+                <div className="col ">
+                  <div className="tempBox mb-2">
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      key={index}
+                      to={`/videos/${v._id}`}
+                    >
+                      <Template
+                        writer={v.writer && v.writer.userName}
+                        avatar={v.writer && v.writer.avatarPath}
+                        title={v.title}
+                        description={v.description}
+                        thumbnail={v.thumbnail}
+                        duration={v.duration}
+                      />
+                    </Link>
+                  </div>
+                </div>
               ))}
             </>
           ) : (

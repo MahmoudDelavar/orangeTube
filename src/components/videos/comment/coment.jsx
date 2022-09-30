@@ -13,6 +13,7 @@ const Comment = (props) => {
   const showComment = props.showComment;
   //-------------------------- states  -----------------------------------------------
   const [comments, setComments] = useState([]);
+
   //-------------------------- send data to backend ---------------------------------
   //____handle submit___
 

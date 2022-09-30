@@ -81,6 +81,8 @@ const LikeAndDisLike = (props) => {
         res.data.data.map((likes) => {
           if (likes.userId === userId) {
             setIsLiked(true);
+          } else {
+            setIsLiked(false);
           }
         });
       });
@@ -95,6 +97,8 @@ const LikeAndDisLike = (props) => {
         res.data.data.map((disLiked) => {
           if (disLiked.userId === userId) {
             setIsDisLiked(true);
+          } else {
+            setIsDisLiked(false);
           }
         });
       });
@@ -103,30 +107,30 @@ const LikeAndDisLike = (props) => {
 
   return (
     <>
-      <div style={{ display: "inline-block" }}>
+      <div className="col" style={{ display: "inline-block" }}>
         <div className="likeBox">
           {!isDisLiked ? (
             <>
-              <AiOutlineDislike size={25} onClick={handleDisLike} />
+              <AiOutlineDislike size={30} onClick={handleDisLike} />
               <span>{disLikeCount}</span>
             </>
           ) : (
             <>
-              <AiFillDislike size={25} onClick={handleDisLike} />
+              <AiFillDislike size={30} onClick={handleDisLike} />
               <span>{disLikeCount}</span>
             </>
           )}
         </div>
 
-        <div className="likeBox">
+        <div className=" likeBox">
           {!isLiked ? (
             <>
-              <AiOutlineLike size={25} onClick={handleLike} />
+              <AiOutlineLike size={30} onClick={handleLike} />
               <span>{likeCount}</span>
             </>
           ) : (
             <>
-              <AiFillLike size={25} onClick={handleLike} />
+              <AiFillLike size={30} onClick={handleLike} />
               <span>{likeCount}</span>
             </>
           )}

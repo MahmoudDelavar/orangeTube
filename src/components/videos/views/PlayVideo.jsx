@@ -51,7 +51,7 @@ const PlayVideo = () => {
         <div className="row  justify-content-between">
           <div className="col  text-center">
             <div className="link-box">
-              <Link className="upload-link" to="uploadVideo">
+              <Link className="upload-link" to="/uploadVideo">
                 <FaUpload size={40} />
                 <p>آپلود ویدئو</p>
               </Link>
@@ -71,7 +71,7 @@ const PlayVideo = () => {
         <div className="row mt-4">
           <div className=" col-md-9 col-sm-12 col-xs-12 ">
             {/* ________________Video Player________________ */}
-            <div className="col-12">
+            <div className="col-12 ">
               <video
                 controls
                 style={{ width: "100%" }}
@@ -81,14 +81,12 @@ const PlayVideo = () => {
 
             {/* ___Video Detailes (sub - Likes - comment)___ */}
             <div className="row   ">
-              <div className="row  justify-content-end">
-                <div className="col-3 text-left ">
-                  <button onClick={handleLoadComments}>
-                    <AiOutlineComment size={30} />
-                  </button>
-                </div>
+              <div className="row  justify-content-center">
                 <div className="col-3">
-                  <LikeAndDisLike className=" " video videoId={videoId} />
+                  <LikeAndDisLike video videoId={videoId} />
+                </div>
+                <div className="col-3 text-left comment-logo">
+                  <AiOutlineComment onClick={handleLoadComments} size={43} />
                 </div>
                 <div className="col-3">
                   <Subscribe userId={video.writer && video.writer._id} />

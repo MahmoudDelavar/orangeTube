@@ -14,6 +14,7 @@
 .template {
   position: absolute;
   color: black;
+  display: block;
 }
 .thumbnail {
   position: relative;

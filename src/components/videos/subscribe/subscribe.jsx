@@ -43,7 +43,7 @@ const Subscribe = (props) => {
   };
   //------------------------
   useEffect(() => {
-    // ---How meny subscribed
+    // ---How many subscribed
     axios
       .post("http://localhost:4000/api/subscribe/subscribeNumber", { userTo })
       .then((res) => {
@@ -54,14 +54,16 @@ const Subscribe = (props) => {
       });
 
     // ---Check subscribed or not
-    axios
-      .post("http://localhost:4000/api/subscribe/isSubscribe", { info })
-      .then((res) => {
-        setisSubscribe(res.data.data);
-      })
-      .catch((err) => {
-        console.log("subscribe or not err", err);
-      });
+    if (userFrom) {
+      axios
+        .post("http://localhost:4000/api/subscribe/isSubscribe", { info })
+        .then((res) => {
+          setisSubscribe(res.data.data);
+        })
+        .catch((err) => {
+          console.log("subscribe or not err", err);
+        });
+    }
   });
   //------------------------
 
