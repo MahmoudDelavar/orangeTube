@@ -23,8 +23,6 @@ const SubscribtionsPage = () => {
   return (
     <>
       <div className="container">
-        {console.log(videos)}
-
         <div className="row">
           {videos.length !== 0 ? (
             <>
