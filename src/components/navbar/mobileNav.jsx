@@ -41,24 +41,9 @@ const MobileNav = () => {
                         <span className="text-mob"> ویدئو ها</span>
                       </Link>
                     </Nav.Link>
-                    <Nav.Link>
-                      <Link className="link" to="/games">
-                        <span className="icon-mob ">
-                          <BiGame />
-                        </span>
-                        <span className="text-mob"> بازی </span>
-                      </Link>
-                    </Nav.Link>
+
                     {!islogin ? (
                       <>
-                        <Nav.Link>
-                          <Link className="link" to="/register">
-                            <span className="icon-mob ">
-                              <FaRegIdCard />
-                            </span>
-                            <span className="text-mob">ثبت نام</span>
-                          </Link>
-                        </Nav.Link>
                         <Nav.Link>
                           <Link className="link" to="/login">
                             <span className="icon-mob ">
