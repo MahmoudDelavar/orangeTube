@@ -48,26 +48,6 @@ const PlayVideo = () => {
   if (video.writer) {
     return (
       <>
-        <div className="row  justify-content-between">
-          <div className="col  text-center">
-            <div className="link-box">
-              <Link className="upload-link" to="/uploadVideo">
-                <FaUpload size={40} />
-                <p>آپلود ویدئو</p>
-              </Link>
-            </div>
-          </div>
-
-          <div className="col  text-center ">
-            <div className="link-box">
-              <Link className="upload-link " to="/subscribtionsPage">
-                <AiFillVideoCamera size={40} />
-                <p>کاربران دنبال شده</p>
-              </Link>
-            </div>
-          </div>
-          <hr />
-        </div>
         <div className="row mt-4">
           <div className=" col-md-9 col-sm-12 col-xs-12 ">
             {/* ________________Video Player________________ */}
