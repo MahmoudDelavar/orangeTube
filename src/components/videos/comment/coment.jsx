@@ -19,6 +19,10 @@ const Comment = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!commentWriter) {
+      alert("برای ثبت دیدگاه ابتدا ثبت نام کنید ");
+      return;
+    }
     const form = new FormData(e.currentTarget);
     const text = form.get("text");
     const info = {
