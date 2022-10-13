@@ -78,7 +78,7 @@ const DesktopNav = () => {
                         />
                       </>
                     ) : (
-                      <p>{`Unregisterd`}</p>
+                      <p style={{ color: "red" }}>{`Unregisterd`}</p>
                     )}
                   </div>
                 </ul>
