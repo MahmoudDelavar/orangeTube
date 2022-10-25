@@ -20,7 +20,7 @@ const Subscribe = (props) => {
     if (isSubscribe) {
       //---------- Unsubscribe
       axios
-        .post("http://localhost:4000/api/subscribe/unsubscribe", { info })
+        .post("http://orangetube.ir/api/subscribe/unsubscribe", { info })
         .then((res) => {
           setisSubscribe(!isSubscribe);
           setSubsceibeCount(subsceibeCount - 1);
@@ -31,7 +31,7 @@ const Subscribe = (props) => {
     } else {
       //---------- Subscribe
       axios
-        .post("http://localhost:4000/api/subscribe/subscribe", { info })
+        .post("http://orangetube.ir/api/subscribe/subscribe", { info })
         .then((res) => {
           setisSubscribe(!isSubscribe);
           setSubsceibeCount(subsceibeCount + 1);
@@ -45,7 +45,7 @@ const Subscribe = (props) => {
   useEffect(() => {
     // ---How many subscribed
     axios
-      .post("http://localhost:4000/api/subscribe/subscribeNumber", { userTo })
+      .post("http://orangetube.ir/api/subscribe/subscribeNumber", { userTo })
       .then((res) => {
         setSubsceibeCount(res.data.data);
       })
@@ -56,7 +56,7 @@ const Subscribe = (props) => {
     // ---Check subscribed or not
     if (userFrom) {
       axios
-        .post("http://localhost:4000/api/subscribe/isSubscribe", { info })
+        .post("http://orangetube.ir/api/subscribe/isSubscribe", { info })
         .then((res) => {
           setisSubscribe(res.data.data);
         })
