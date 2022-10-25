@@ -33,7 +33,7 @@ const LikeAndDisLike = (props) => {
   const handleLike = () => {
     if (!isLiked) {
       axios
-        .post("http://localhost:4000/api/likeAndDislike/Like", info)
+        .post("http://orangetube.ir/api/likeAndDislike/Like", info)
         .then((res) => {
           setLikeCount(likeCount + 1);
           setIsLiked(!isLiked);
@@ -41,7 +41,7 @@ const LikeAndDisLike = (props) => {
         });
     } else {
       axios
-        .post("http://localhost:4000/api/likeAndDislike/unLike", info)
+        .post("http://orangetube.ir/api/likeAndDislike/unLike", info)
         .then((res) => {
           setLikeCount(likeCount - 1);
           setIsLiked(!isLiked);
@@ -53,7 +53,7 @@ const LikeAndDisLike = (props) => {
   const handleDisLike = () => {
     if (!isDisLiked) {
       axios
-        .post("http://localhost:4000/api/likeAndDislike/disLike", info)
+        .post("http://orangetube.ir/api/likeAndDislike/disLike", info)
         .then((res) => {
           setDisLikeCount(disLikeCount + 1);
           setIsDisLiked(!isDisLiked);
@@ -61,7 +61,7 @@ const LikeAndDisLike = (props) => {
         });
     } else {
       axios
-        .post("http://localhost:4000/api/likeAndDislike/unDisLike", info)
+        .post("http://orangetube.ir/api/likeAndDislike/unDisLike", info)
         .then((res) => {
           setDisLikeCount(disLikeCount - 1);
           setIsDisLiked(!isDisLiked);
@@ -73,7 +73,7 @@ const LikeAndDisLike = (props) => {
   useEffect(() => {
     //__How many Liked this video or This Video Commnets__
     axios
-      .post("http://localhost:4000/api/likeAndDislike/getLikedCount", info)
+      .post("http://orangetube.ir/api/likeAndDislike/getLikedCount", info)
       .then((res) => {
         setLikeCount(res.data.data.length);
 
@@ -89,7 +89,7 @@ const LikeAndDisLike = (props) => {
 
     //__How many DisLiked this video or this Video Commnets__
     axios
-      .post("http://localhost:4000/api/likeAndDislike/getDisLikedCount", info)
+      .post("http://orangetube.ir/api/likeAndDislike/getDisLikedCount", info)
       .then((res) => {
         setDisLikeCount(res.data.data.length);
 
@@ -107,33 +107,36 @@ const LikeAndDisLike = (props) => {
 
   return (
     <>
-      <div className="col" style={{ display: "inline-block" }}>
-        <div className="likeBox">
-          {!isDisLiked ? (
-            <>
-              <AiOutlineDislike size={30} onClick={handleDisLike} />
-              <span>{disLikeCount}</span>
-            </>
-          ) : (
-            <>
-              <AiFillDislike size={30} onClick={handleDisLike} />
-              <span>{disLikeCount}</span>
-            </>
-          )}
-        </div>
+      <div className="row ">
+        {" "}
+        <div className="col" style={{ display: "inline-block" }}>
+          <div className="likeBox">
+            {!isDisLiked ? (
+              <>
+                <AiOutlineDislike size={30} onClick={handleDisLike} />
+                <span>{disLikeCount}</span>
+              </>
+            ) : (
+              <>
+                <AiFillDislike size={30} onClick={handleDisLike} />
+                <span>{disLikeCount}</span>
+              </>
+            )}
+          </div>
 
-        <div className=" likeBox">
-          {!isLiked ? (
-            <>
-              <AiOutlineLike size={30} onClick={handleLike} />
-              <span>{likeCount}</span>
-            </>
-          ) : (
-            <>
-              <AiFillLike size={30} onClick={handleLike} />
-              <span>{likeCount}</span>
-            </>
-          )}
+          <div className=" likeBox">
+            {!isLiked ? (
+              <>
+                <AiOutlineLike size={30} onClick={handleLike} />
+                <span>{likeCount}</span>
+              </>
+            ) : (
+              <>
+                <AiFillLike size={30} onClick={handleLike} />
+                <span>{likeCount}</span>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </>

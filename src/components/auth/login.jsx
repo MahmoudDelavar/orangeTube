@@ -29,7 +29,7 @@ const Login = () => {
     const isValid = await validate(userInfo);
     if (isValid) {
       axios
-        .post("http://localhost:4000/api/auth/login", userInfo)
+        .post("http://orangetube.ir/api/auth/login", userInfo)
         .then((res) => {
           setSending(true);
           err.length = 0;
@@ -136,8 +136,10 @@ const Login = () => {
           </div>
         </div>
 
-        <Link className="" to="/register">
-          <button className="btn btn-info mt-2">ثبت نام</button>
+        <Link className="register-link" to="/register">
+          <div className="text-center d-grid gap-2 mt-2 ">
+            <button className="btn btn-info mt-2">ثبت نام</button>
+          </div>
         </Link>
       </form>
     </>

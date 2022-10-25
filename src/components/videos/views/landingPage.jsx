@@ -14,7 +14,7 @@ const LandingPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/videos/allVideos")
+      .get("http://orangetube.ir/api/videos/allVideos")
       .then((res) => {
         let info = res.data.data;
         setVideos(info);

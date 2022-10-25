@@ -16,7 +16,7 @@ const TemplateComment = (props) => {
               marginLeft: "5px",
               borderRadius: "50%",
             }}
-            src={`http://localhost:4000/${
+            src={`http://orangetube.ir:4000/${
               props.comment.writer && props.comment.writer.avatarPath
             }`}
             alt=""

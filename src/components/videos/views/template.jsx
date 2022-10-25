@@ -15,14 +15,14 @@ const Template = ({
     <>
       <div className="template" style={{ width: "18rem" }}>
         <img
-          src={`http://localhost:4000/${thumbnail}`}
+          src={`http://orangetube.ir:4000/${thumbnail}`}
           className="card-img-top thumbnail"
           alt="thumbnail"
         />
         <div className="temp-avatar-box">
           <img
             className="temp-avatar"
-            src={`http://localhost:4000/${avatar}`}
+            src={`http://orangetube.ir:4000/${avatar}`}
             alt="failed"
           />
           <p className="temp-userName">{writer}</p>

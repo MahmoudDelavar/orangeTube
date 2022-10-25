@@ -14,19 +14,21 @@ const Register = () => {
   const [err, setErr] = useState([]);
   const [serverMsg, setServerMsg] = useState([]);
   const [avatarPath, setAvatarPath] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   //-------------------------- send data to backend ---------------------------------
 
   //____Send Users Avatar To Server___
   const handleChange = async (e) => {
-    console.log("avatar:", e.target.files[0]);
+    setIsLoading(true);
+    e.preventDefault();
     const form = new FormData();
     const config = {
       header: { "content-type": "multipart-data" },
     };
     form.append("file", e.target.files[0]);
     axios
-      .post("http://localhost:4000/api/auth/avatar", form, config)
+      .post("http://orangetube.ir/api/auth/avatar", form, config)
       .then((res) => {
         setAvatarPath(res.data.data.filePath);
       })
@@ -49,12 +51,14 @@ const Register = () => {
     if (re_password === password) {
       if (isValid) {
         axios
-          .post("http://localhost:4000/api/auth/register", userInfo)
+          .post("http://orangetube.ir/api/auth/register", userInfo)
           .then((res) => {
             setServerMsg(res.data.message);
+            localStorage.setItem("token", res.data.data);
+
             e.target.reset();
             setTimeout(() => {
-              window.location = "/login";
+              window.location = "/videos";
             }, 2000);
           })
           .catch((err) => {
@@ -114,7 +118,11 @@ const Register = () => {
         method="post"
         className="main-box"
       >
-        <h3 className="text-center">ثبت نام</h3>
+        <div className="text-center">
+          <span>میتونین از ایمیل فیک استفاده کنین</span>
+          <hr />
+        </div>
+
         <InputComponent
           name="userName"
           type="text"
@@ -156,19 +164,24 @@ const Register = () => {
             {avatarPath !== "" && (
               <img
                 className="avatar"
-                src={`http://localhost:4000/${avatarPath}`}
+                src={`http://orangetube.ir:4000/${avatarPath}`}
               />
             )}
-            {avatarPath == "" && (
-              <div>
-                <FcPicture size={50} /> <p>پیش نمایش</p>
-              </div>
-            )}
+            {avatarPath == "" &&
+              (isLoading ? (
+                <div className="spinner-border text-danger" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                <div>
+                  <FcPicture size={50} /> <p>پیش نمایش</p>
+                </div>
+              ))}
           </div>
         </div>
 
-        <div className="text-center d-grid gap-2 mt-4 ">
-          <button type="submit" className="btn btn-outline-primary ">
+        <div className="text-center d-grid gap-2 mt-4  ">
+          <button type="submit" className="btn btn-outline-primary  ">
             ثبت نام
           </button>
         </div>

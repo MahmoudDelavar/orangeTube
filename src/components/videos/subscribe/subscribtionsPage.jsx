@@ -11,7 +11,7 @@ const SubscribtionsPage = () => {
   //--------
   useEffect(() => {
     axios
-      .post("http://localhost:4000/api/subscribe/subscribtions", { userFrom })
+      .post("http://orangetube.ir/api/subscribe/subscribtions", { userFrom })
       .then((res) => {
         setVideos(res.data.data);
       })
@@ -26,7 +26,6 @@ const SubscribtionsPage = () => {
         <div className="row">
           {videos.length !== 0 ? (
             <>
-              <p>شما این کاربران را دنبال میکنید </p>
               {videos.map((v, index) => (
                 <div className="col ">
                   <div className="tempBox mb-2">
@@ -50,7 +49,7 @@ const SubscribtionsPage = () => {
             </>
           ) : (
             <>
-              <h1>شما هیچ کاربری را دنبال نمی کنید </h1>
+              <h5 className="text-center">شما هیچ اشتراکی ندارید </h5>
             </>
           )}
         </div>

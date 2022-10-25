@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { FiUsers, FiHome, FiLogOut, FiVideo } from "react-icons/fi";
+import { FiUsers, FiHome, FiLogOut } from "react-icons/fi";
+import { BsCameraReels } from "react-icons/bs";
 
 import { useEffect } from "react";
 import "./navStyle.css";
@@ -39,7 +40,7 @@ const DesktopNav = () => {
                   <li className="list">
                     <Link className="link" to="/videos">
                       <span className="icon">
-                        <FiVideo />
+                        <BsCameraReels />
                       </span>
                       <span className="text"> ویدئو ها</span>
                     </Link>
@@ -73,12 +74,12 @@ const DesktopNav = () => {
                         <span>{`${userName}`}</span>
                         <img
                           className="user-avatar"
-                          src={`http://localhost:4000/${avatar}`}
+                          src={`http://orangetube.ir:4000/${avatar}`}
                           alt=""
                         />
                       </>
                     ) : (
-                      <p style={{ color: "red" }}>{`Unregisterd`}</p>
+                      <p style={{ color: "red" }}>{`کاربر مهمان`}</p>
                     )}
                   </div>
                 </ul>

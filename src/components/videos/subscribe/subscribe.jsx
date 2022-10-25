@@ -74,8 +74,8 @@ const Subscribe = (props) => {
         onClick={handleChlick}
         className="subscribe"
       >
-        {subsceibeCount}
         {isSubscribe ? "SUBSCRIBED" : "SUBSCRIBE"}
+        {subsceibeCount}
       </button>
     </>
   );

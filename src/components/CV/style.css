@@ -1,0 +1,13 @@
+.cv-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.cv-pic {
+  width: 100%;
+  height: 100%;
+}
+
+.cv-descriotion {
+  text-align: justify;
+}

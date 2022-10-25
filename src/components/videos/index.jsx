@@ -1,5 +1,5 @@
 import LandingPage from "./views/landingPage";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useOutlet } from "react-router-dom";
 import { AiOutlinePlusSquare, AiFillVideoCamera } from "react-icons/ai";
 
 import "./styles/uploadStyle.css";
@@ -18,19 +18,18 @@ const VideoPage = () => {
               </Link>
             </div>
           </div>
-
           <div className="col  text-center ">
             <div className="link-box">
               <Link className="upload-link " to="/subscribtionsPage">
                 <AiFillVideoCamera size={40} />
-                <p>کاربران دنبال شده</p>
+                <p> اشتراک های شما </p>
               </Link>
             </div>
           </div>
           <hr />
         </div>
         <div className="col-12">
-          <LandingPage />
+          <Outlet />
         </div>
       </div>
     </>

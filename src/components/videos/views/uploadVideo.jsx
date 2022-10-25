@@ -40,7 +40,7 @@ const UploadVideo = () => {
       thumbnail: thumbnail,
     };
     axios
-      .post("http://localhost:4000/api/videos/addvideo", data)
+      .post("http://orangetube.ir/api/videos/addvideo", data)
       .then((res) => {
         setServerMessage(res.data.message);
         setTimeout(() => {
@@ -64,7 +64,7 @@ const UploadVideo = () => {
     };
     form.append("file", e.target.files[0]);
     axios
-      .post("http://localhost:4000/api/videos/load", form, config)
+      .post("http://orangetube.ir/api/videos/load", form, config)
       .then((res) => {
         setFileName(res.data.data.fileName);
         setFilePath(res.data.data.filePath);
@@ -74,7 +74,7 @@ const UploadVideo = () => {
         };
         // genetate thumbnails
         axios
-          .post("http://localhost:4000/api/videos/thumbnail", info)
+          .post("http://orangetube.ir/api/videos/thumbnail", info)
           .then((res) => {
             setDuration(res.data.data.fileDuration);
             setThumbnail(res.data.data.thumbFliePath);
@@ -84,7 +84,7 @@ const UploadVideo = () => {
           });
       })
       .catch((err) => {
-        console.log("AXIOS ERR:", err);
+        console.log("AXIOS ERR(Loading err):", err);
       });
   };
 
@@ -124,7 +124,7 @@ const UploadVideo = () => {
                     {thumbnail !== "" ? (
                       <div>
                         <img
-                          src={`http://localhost:4000/${thumbnail}`}
+                          src={`http://orangetube.ir:4000/${thumbnail}`}
                           alt="faild Load"
                         />
                       </div>
@@ -133,11 +133,13 @@ const UploadVideo = () => {
                         <FcPicture size={50} /> <p>پیش نمایش</p>
                       </div>
                     ) : (
-                      <>Isloading</>
+                      <div className="spinner-border text-danger" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </div>
                     )}
                   </div>
                 </div>
-
+                {console.log("perview path", thumbnail)}
                 <div className="input-group mb-3">
                   <span className="input-group-text" htmlFor="title">
                     عنوان
@@ -183,23 +185,23 @@ const UploadVideo = () => {
           </div>
         ) : (
           <div className="row">
-            <p> لطفا برای آپلود ویدئووارد حساب کاربری خود شوید </p>
+            <p> لطفا برای آپلود ویدئو وارد حساب کاربریتون بشین </p>
             <div className="col box">
               <Link className="link" to="/login">
                 <FiUsers size={50} />
-                <p>ورورد به حساب کاربری</p>
+                <p>ورورد </p>
               </Link>
             </div>
             <div className="col box ">
               <Link className="link" to="/register">
                 <FaRegIdCard size={50} />
-                <p>ثیت نام </p>
+                <p>ثبت نام </p>
               </Link>
             </div>
             <div className="col box ">
               <Link className="link" to="/videos">
                 <FiVideo size={50} />
-                <p> بازگشت به صفحه ویدئوها</p>
+                <p> بازگشت به ویدئوها</p>
               </Link>
             </div>
           </div>

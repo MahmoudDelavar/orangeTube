@@ -32,7 +32,7 @@ const Comment = (props) => {
     };
     //-------
     axios
-      .post("http://localhost:4000/api/comments/addComment", { info })
+      .post("http://orangetube.ir/api/comments/addComment", { info })
       .then((res) => {
         props.refreshFunction(res.data.data);
         e.target.reset();

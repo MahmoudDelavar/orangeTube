@@ -43,3 +43,8 @@
 .icon-login :not(:hover) {
   transition: 1s;
 }
+
+.register-link {
+  text-decoration: none;
+  color: brown;
+}

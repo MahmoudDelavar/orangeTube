@@ -1,5 +1,5 @@
 .comment-box {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(243, 242, 242);
   border: 1px solid wheat;
   border-radius: 15%;
   margin-bottom: 9px;
@@ -7,8 +7,8 @@
 }
 
 .comment-writer-userName {
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 400;
   display: inline-block;
   margin-left: 15px;
 }

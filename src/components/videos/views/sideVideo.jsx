@@ -13,7 +13,7 @@ const SideVideo = () => {
   //__Load All Videos To show__
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/videos/allVideos")
+      .get("http://orangetube.ir/api/videos/allVideos")
       .then((res) => {
         let info = res.data.data;
         setVideos(info);
@@ -48,7 +48,7 @@ const SideVideo = () => {
                 <Link to={`/videos/${v._id}`}>
                   <img
                     style={{ width: "100%", marginRight: "5px" }}
-                    src={`http://localhost:4000/${v.thumbnail}`}
+                    src={`http://orangetube.ir:4000/${v.thumbnail}`}
                     alt=""
                   />
                 </Link>
