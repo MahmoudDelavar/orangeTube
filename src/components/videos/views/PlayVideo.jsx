@@ -48,55 +48,56 @@ const PlayVideo = () => {
   if (video.writer) {
     return (
       <>
-        <div className="row mt-4">
-          <div className=" col-md-9 col-sm-12 col-xs-12 ">
+        <div className="row mt-4 ">
+          <div className=" col-lg-9 col-md-8 col-sm-12  ">
             {/* ________________Video Player________________ */}
-            <div className="row">
+            <div className="row ">
               <div className="col-12 ">
                 <video
                   controls
-                  style={{ width: "100%", height: "500px" }}
+                  style={{ width: "100%" }}
                   src={`http://orangetube.ir:4000/${video.filePath}`}
                 ></video>
               </div>
             </div>
 
             {/* ___Video Detailes (sub - Likes - comment)___ */}
-            <div className="row">
-              <div className="row  justify-content-center">
-                <div className="col-5">
+
+            <div className="row  align-items-center">
+              <div className="d-flex flex-row justify-content-end ">
+                <div className="m-2">
                   <LikeAndDisLike video videoId={videoId} />
                 </div>
-                <div className="col-3  comment-logo">
-                  <AiOutlineComment onClick={handleLoadComments} size={43} />
+                <div className="m-2">
+                  <AiOutlineComment onClick={handleLoadComments} size={30} />
                 </div>
-                <div className="col-3 ">
+                <div className="m-2">
                   <Subscribe userId={video.writer && video.writer._id} />
                 </div>
               </div>
+            </div>
 
-              {/* ______Video Detailes (title - Writer - Description)______ */}
-              <div className="row">
-                <h4>{video.title}</h4>
-                <div>
-                  <img
-                    style={{
-                      width: "40px",
-                      height: "40px",
-                      marginLeft: "5px",
-                      borderRadius: "50%",
-                    }}
-                    src={`http://orangetube.ir:4000/${
-                      video.writer && video.writer.avatarPath
-                    }`}
-                    alt=""
-                  />
+            {/* ______Video Detailes (title - Writer - Description)______ */}
+            <div className="row">
+              <h4>{video.title}</h4>
+              <div>
+                <img
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    marginLeft: "5px",
+                    borderRadius: "50%",
+                  }}
+                  src={`http://orangetube.ir:4000/${
+                    video.writer && video.writer.avatarPath
+                  }`}
+                  alt=""
+                />
 
-                  <span>{video.writer && video.writer.userName}</span>
-                </div>
-                <p>{video.description}</p>
-                <hr />
+                <span>{video.writer && video.writer.userName}</span>
               </div>
+              <p>{video.description}</p>
+              <hr />
             </div>
 
             {/* ________Commetns(Write Box And View All Comments)________ */}
@@ -113,7 +114,7 @@ const PlayVideo = () => {
           </div>
 
           {/* ____Sidebar(More Video To Show)____ */}
-          <div className=" col-md-3 col-sm-12 col-xs-12 text-center">
+          <div className=" col-lg-3 col-md-4 col-sm-12  text-center">
             <SideVideo />
           </div>
         </div>

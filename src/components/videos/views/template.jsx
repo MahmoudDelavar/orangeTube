@@ -13,7 +13,7 @@ const Template = ({
   const seconds = Math.floor(duration - minutes * 60);
   return (
     <>
-      <div className="template" style={{ width: "18rem" }}>
+      <div className="template" style={{ width: "8rem" }}>
         <img
           src={`http://orangetube.ir:4000/${thumbnail}`}
           className="card-img-top thumbnail"

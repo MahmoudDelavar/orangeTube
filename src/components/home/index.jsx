@@ -2,14 +2,9 @@ import { Github } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import "./styles.css";
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Offcanvas from "react-bootstrap/Offcanvas";
+
 import Modal from "react-bootstrap/Modal";
-import {
-  FaRegMehRollingEyes,
-  FaSmileWink,
-  FaRegHandPointLeft,
-} from "react-icons/fa";
+import { FaRegHandPointLeft } from "react-icons/fa";
 //====================================================
 
 const Home = () => {

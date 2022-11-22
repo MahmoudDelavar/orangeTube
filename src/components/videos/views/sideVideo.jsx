@@ -24,36 +24,38 @@ const SideVideo = () => {
   //================================================================
   return (
     <>
-      <div className="row side-video-title">
+      <div className=" side-video-title">
         <p className="mt-2">سایر ویدئوها</p>
       </div>
-      <div className="row side-box ">
+      <div className=" side-box ">
         {videos.map((v, index) => (
           <>
-            <div
-              key={index}
-              className="row align-items-center side-video-item "
-            >
+            <div key={index} className="row  side-video-item ">
               {/* ___________Video Info___________ */}
-              <div className="col-3 side-video-info ">
+              <div className="col-4 side-video-info ">
                 <span>{v.title}</span>
                 <br />
                 <span>{v.writer && v.writer.userName}</span>
                 <br />
-                <span>wiew</span>
               </div>
 
               {/* ___________Video Thumbnail___________ */}
-              <div className="col-9 side-video-thumbnail">
+              <div
+                onClick={() => {
+                  document.documentElement.scrollTop = 0;
+                }}
+                className="col-8 side-video-thumbnail"
+              >
                 <Link to={`/videos/${v._id}`}>
                   <img
-                    style={{ width: "100%", marginRight: "5px" }}
+                    style={{ width: "100%" }}
                     src={`http://orangetube.ir:4000/${v.thumbnail}`}
                     alt=""
                   />
                 </Link>
               </div>
             </div>
+            <hr />
           </>
         ))}
       </div>

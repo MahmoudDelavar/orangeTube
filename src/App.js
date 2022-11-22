@@ -17,6 +17,7 @@ import SubscribtionsPage from "./components/videos/subscribe/subscribtionsPage";
 import "./appStyle.css";
 import LandingPage from "./components/videos/views/landingPage";
 import CV from "./components/CV";
+import AddLink from "./components/videos/link/addLink";
 
 //====================================================
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/cv" element={<CV />} />
+                <Route path="/link" element={<AddLink />} />
               </Routes>
               {/* <Footer /> */}
             </div>

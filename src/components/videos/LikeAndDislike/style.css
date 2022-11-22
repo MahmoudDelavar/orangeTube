@@ -1,7 +1,7 @@
-.likeBox {
-  display: inline-block;
-  margin-left: 5px;
-  font-size: 20px;
+.likeBox2 {
+  font-size: 1rem;
+  width: fit-content;
+  margin: auto;
 }
 .likeBox :hover {
   cursor: pointer;

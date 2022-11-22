@@ -26,8 +26,9 @@ const LandingPage = () => {
       <h3>جدید ترین ویدئو ها </h3>
       <div className="container ">
         <div className="row">
+          {" "}
           {videos.map((v, index) => (
-            <div className="col ">
+            <div className="col-lg-2 col-md-3 col-sm-4 col-xs-6 ">
               <div className="tempBox mb-2">
                 <Link
                   style={{ textDecoration: "none" }}

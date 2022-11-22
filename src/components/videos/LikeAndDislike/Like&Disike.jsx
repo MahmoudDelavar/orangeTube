@@ -107,37 +107,30 @@ const LikeAndDisLike = (props) => {
 
   return (
     <>
-      <div className="row ">
-        {" "}
-        <div className="col" style={{ display: "inline-block" }}>
-          <div className="likeBox">
-            {!isDisLiked ? (
-              <>
-                <AiOutlineDislike size={30} onClick={handleDisLike} />
-                <span>{disLikeCount}</span>
-              </>
-            ) : (
-              <>
-                <AiFillDislike size={30} onClick={handleDisLike} />
-                <span>{disLikeCount}</span>
-              </>
-            )}
-          </div>
+      <div className="likeBox vertical-align-middle">
+        {!isDisLiked ? (
+          <>
+            <AiOutlineDislike size={30} onClick={handleDisLike} />
+            <span>{disLikeCount}</span>
+          </>
+        ) : (
+          <>
+            <AiFillDislike size={30} onClick={handleDisLike} />
+            <span>{disLikeCount}</span>
+          </>
+        )}
 
-          <div className=" likeBox">
-            {!isLiked ? (
-              <>
-                <AiOutlineLike size={30} onClick={handleLike} />
-                <span>{likeCount}</span>
-              </>
-            ) : (
-              <>
-                <AiFillLike size={30} onClick={handleLike} />
-                <span>{likeCount}</span>
-              </>
-            )}
-          </div>
-        </div>
+        {!isLiked ? (
+          <>
+            <AiOutlineLike size={30} onClick={handleLike} />
+            <span>{likeCount}</span>
+          </>
+        ) : (
+          <>
+            <AiFillLike size={30} onClick={handleLike} />
+            <span>{likeCount}</span>
+          </>
+        )}
       </div>
     </>
   );

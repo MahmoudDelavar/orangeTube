@@ -4,7 +4,7 @@ import "./style.css";
 const CV = () => {
   return (
     <>
-      <Accordion defaultActiveKey="0" flush>
+      <Accordion flush>
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             <p className="cv-title"> دستگاه نشت یاب گاز </p>
